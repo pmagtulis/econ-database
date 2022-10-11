@@ -9,26 +9,15 @@
 import pandas as pd
 import numpy as np
 import altair as alt
-from plotnine import *
 from googleapiclient.discovery import build
-from google.oauth2 import service_account
 
 
 # In[48]:
 
 
-SERVICE_ACCOUNT_FILE = 'keys.json' #should be in the same folder
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-
-creds = None
-creds = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-
-
-
 # The ID of spreadsheet.
 database= '1ScmJ4rTC9DmHQjOdP-KiAD4cuP2UKfYrbhpdiEot82M' #url of google sheets truncated
-service = build('sheets', 'v4', credentials=creds)
+service = build('sheets', 'v4')
 
 # Call the Sheets API
 sheet = service.spreadsheets()
