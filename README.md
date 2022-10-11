@@ -1,2 +1,2 @@
-# google-api-requests
+# econ-database
 Uses Google API to fetch and process contents of Google sheets and produce visuals for datasets (under development).
