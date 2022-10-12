@@ -10,10 +10,19 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from googleapiclient.discovery import build
+from google.oauth2 import service account
 
 
 # In[48]:
 
+
+SERVICE_ACCOUNT_FILE = '/keys.json'
+
+SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
+
+creds= None
+creds=service_account.Credentials.from_service_account_file(
+    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 # The ID of spreadsheet.
 database= '1ScmJ4rTC9DmHQjOdP-KiAD4cuP2UKfYrbhpdiEot82M' #url of google sheets truncated
