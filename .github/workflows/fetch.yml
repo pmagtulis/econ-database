@@ -4,30 +4,32 @@ on:
   schedule:
     - cron: '5 8 * * 0'
 jobs:
-  steps:
-  - uses: 'actions/checkout@v3'
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: 'actions/checkout@v3'
 
-  - id: 'auth'
-    name: 'Authenticate to Google Cloud'
-    uses: 'google-github-actions/auth@v0'
-    with:
-      credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-      
-  - name: Check out this repo
-    uses: actions/checkout@v2
-  - name: Set up Python
-    uses: actions/setup-python@v2
-    with:
-      python-version: '3.9'
-  - name: Install all necessary packages
-    run: pip install requests pandas altair numpy 
-  - name: Run the script
-    run: database.py
-  - name: Commit and push if content changed
-    run: |-
-        git config user.name "Automated"
-        git config user.email "actions@users.noreply.github.com"
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "Latest data: ${timestamp}" || exit 0
-        git push
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+    - name: Check out this repo
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install all necessary packages
+      run: pip install requests pandas altair numpy 
+    - name: Run the script
+      run: database.py
+    - name: Commit and push if content changed
+      run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
