@@ -3,14 +3,15 @@
 
 # # Using Google APIs to get data from google sheets
 
-# In[47]:
+# In[2]:
 
 
 import pandas as pd
+import os
 import numpy as np
 import altair as alt
 from googleapiclient.discovery import build
-from google.oauth2 import service account
+from google.oauth2 import service_account
 
 
 # In[48]:
