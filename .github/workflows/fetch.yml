@@ -7,13 +7,13 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-    # - uses: 'actions/checkout@v3'
+    - uses: 'actions/checkout@v3'
 
-    # - id: 'auth'
-    #   name: 'Authenticate to Google Cloud'
-    #   uses: 'google-github-actions/auth@v0'
-    #   with:
-    #     credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
         
     - name: Check out this repo
       uses: actions/checkout@v2
