@@ -23,7 +23,7 @@ jobs:
         python-version: '3.9'
 
     - name: Install all necessary packages
-      run: pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib os pandas altair numpy 
+      run: pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib os-sys pandas altair numpy 
     - name: Run the script
       run: database.py
     - name: Commit and push if content changed
