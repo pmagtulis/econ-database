@@ -3,7 +3,7 @@
 
 # # Using Google APIs to get data from google sheets
 
-# In[2]:
+# In[1]:
 
 
 import pandas as pd
@@ -14,7 +14,7 @@ import requests
 
 # ## Read through first CSV
 
-# In[3]:
+# In[2]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -25,13 +25,13 @@ revenue
 
 # ## Government revenue
 
-# In[4]:
+# In[3]:
 
 
 revenue.columns = revenue.columns.str.lower()
 
 
-# In[5]:
+# In[4]:
 
 
 revenue.customs = revenue.customs.astype(float)
@@ -42,7 +42,7 @@ revenue.head()
 
 # ### Chart
 
-# In[6]:
+# In[5]:
 
 
 revenues = alt.Chart(revenue).transform_fold(
@@ -59,7 +59,7 @@ revenues
 
 # ## % of GDP
 
-# In[8]:
+# In[6]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -70,7 +70,7 @@ df2 = pd.read_csv(url)
 df2
 
 
-# In[9]:
+# In[7]:
 
 
 df2.columns = df2.columns.str.lower()
@@ -78,21 +78,20 @@ df2.columns = df2.columns.str.replace(' ', "_", regex=False)
 df2.head()
 
 
-# In[10]:
+# In[8]:
 
 
 df2.revenue = df2.revenue.astype(float)
 df2.tax = df2.tax.astype(float)
 df2.expenditures = df2.expenditures.astype(float)
 df2.gdp_growth = df2.gdp_growth.astype(float)
-df.head()
 
 
 # ### Chart
 # 
 # ### GDP growth
 
-# In[11]:
+# In[9]:
 
 
 growth = alt.Chart(df2).mark_bar().encode(
@@ -112,7 +111,7 @@ growth
 
 # ### Deficit
 
-# In[12]:
+# In[10]:
 
 
 deficit = alt.Chart(df2).mark_bar().encode(
@@ -132,7 +131,7 @@ deficit
 
 # ## Save the charts
 
-# In[ ]:
+# In[11]:
 
 
 revenues.save('/charts/revenue.png')
