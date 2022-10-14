@@ -16,7 +16,7 @@ jobs:
     - name: Install all necessary packages
       run: pip install requests pandas altair numpy 
     - name: Run the script
-      run: database.py
+      run: python database.py
     - name: Commit and push if content changed
       run: |-
           git config user.name "Automated"
