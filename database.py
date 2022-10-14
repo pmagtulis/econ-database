@@ -21,7 +21,7 @@ from altair_saver import save
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv"
 revenue = pd.read_csv(url)
-revenue
+revenue.head()
 
 
 # ## Government revenue
@@ -68,7 +68,7 @@ gid = "577623777" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df2 = pd.read_csv(url)
-df2
+df2.head()
 
 
 # In[7]:
@@ -101,7 +101,7 @@ growth = alt.Chart(df2).mark_bar().encode(
     tooltip='gdp_growth:Q',
     # The highlight will be set on the result of a conditional statement
     color=alt.condition(
-        alt.datum.year == '2020',  # If the year is 2020 this test returns True,
+        alt.datum.year == 2020,  # If the year is 2020 this test returns True,
         alt.value('orange'),     # which sets the bar orange.
         alt.value('steelblue')   # And if it's not true it sets the bar steelblue.
     )
@@ -117,11 +117,11 @@ growth
 
 deficit = alt.Chart(df2).mark_bar().encode(
     x='year:O',
-    y="deficit:Q",
-    tooltip='deficit:Q',
+    y="budget_balance:Q",
+    tooltip='budget_balance:Q',
     # The highlight will be set on the result of a conditional statement
     color=alt.condition(
-        alt.datum.year == '2020',  # If the year is 2020 this test returns True,
+        alt.datum.year == 2020,  # If the year is 2020 this test returns True,
         alt.value('red'),     # which sets the bar orange.
         alt.value('grey')   # And if it's not true it sets the bar steelblue.
     )
@@ -130,12 +130,39 @@ deficit = alt.Chart(df2).mark_bar().encode(
 deficit
 
 
+# ## Expenditures
+
+# In[13]:
+
+
+spending = alt.Chart(df2).mark_bar().encode(
+    x='year:O',
+    y="expenditures:Q",
+    tooltip='expenditures:Q',
+    # The highlight will be set on the result of a conditional statement
+    color=alt.condition(
+        alt.datum.year == 2021,  # If the year is 2020 this test returns True,
+        alt.value('blue'),     # which sets the bar orange.
+        alt.value('grey')   # And if it's not true it sets the bar steelblue.
+    )
+).properties(width=700)
+
+spending
+
+
 # ## Save the charts
 
-# In[11]:
+# In[12]:
 
 
 revenues.save('charts/revenue.png', scale_factor=2)
 deficit.save('charts/deficit.png', scale_factor=2)
 growth.save('charts/growth.png', scale_factor=2)
+expenditures.save('charts/expenditures.png', scale_factor=2)
+
+
+# In[ ]:
+
+
+
 
