@@ -150,6 +150,14 @@ spending = alt.Chart(df2).mark_bar().encode(
 spending
 
 
+# ## Save the CSVs
+
+# In[ ]:
+
+
+revenue.to_csv('csv/revenue.csv')
+
+
 # ## Save the charts
 
 # In[12]:
