@@ -19,8 +19,8 @@ import requests
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv"
-df = pd.read_csv(url)
-df
+revenue = pd.read_csv(url)
+revenue
 
 
 # ## Government revenue
@@ -28,16 +28,16 @@ df
 # In[4]:
 
 
-df.columns = df.columns.str.lower()
+revenue.columns = revenue.columns.str.lower()
 
 
 # In[5]:
 
 
-df.customs = df.customs.astype(float)
-df.bir = df.bir.astype(float)
-df.total = df.total.astype(float)
-df
+revenue.customs = revenue.customs.astype(float)
+revenue.bir = revenue.bir.astype(float)
+revenue.total = revenue.total.astype(float)
+revenue.head()
 
 
 # ### Chart
@@ -45,7 +45,7 @@ df
 # In[6]:
 
 
-revenues = alt.Chart(df).transform_fold(
+revenues = alt.Chart(revenue).transform_fold(
     ['total', 'bir', 'customs']
 ).mark_line().encode(
     x='year:O',
@@ -135,7 +135,7 @@ deficit
 # In[ ]:
 
 
-revenue.save('/charts/revenue.png')
+revenues.save('/charts/revenue.png')
 deficit.save('/charts/deficit.png')
 growth.save('/charts/growth.png')
 
