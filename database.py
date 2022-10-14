@@ -135,7 +135,7 @@ deficit
 # In[11]:
 
 
-revenues.save('/charts/revenue.png')
-deficit.save('/charts/deficit.png')
-growth.save('/charts/growth.png')
+revenues.save('charts/revenue.png')
+deficit.save('charts/deficit.png')
+growth.save('charts/growth.png')
 
