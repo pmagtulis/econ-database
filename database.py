@@ -158,7 +158,7 @@ spending
 revenues.save('charts/revenue.png', scale_factor=2)
 deficit.save('charts/deficit.png', scale_factor=2)
 growth.save('charts/growth.png', scale_factor=2)
-expenditures.save('charts/expenditures.png', scale_factor=2)
+spending.save('charts/expenditures.png', scale_factor=2)
 
 
 # In[ ]:
