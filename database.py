@@ -7,68 +7,42 @@
 
 
 import pandas as pd
-import os
 import numpy as np
 import altair as alt
-from googleapiclient.discovery import build
-from google.oauth2 import service_account
+import requests
 
 
-# In[48]:
+# ## Read through first CSV
+
+# In[3]:
 
 
-SERVICE_ACCOUNT_FILE = '/keys.json'
-
-SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
-
-creds= None
-creds=service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-
-# The ID of spreadsheet.
-database= '1ScmJ4rTC9DmHQjOdP-KiAD4cuP2UKfYrbhpdiEot82M' #url of google sheets truncated
-service = build('sheets', 'v4')
-
-# Call the Sheets API
-sheet = service.spreadsheets()
+key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv"
+df = pd.read_csv(url)
+df
 
 
 # ## Government revenue
 
-# In[49]:
+# In[4]:
 
 
-revenue = sheet.values().get(spreadsheetId=database,
-                            range="Revenue growth!A1:D32").execute()
-values = revenue.get('values', [])
-
-
-# In[50]:
-
-
-df= pd.DataFrame(values)
-df.head()
-
-
-# In[51]:
-
-
-df.columns = df.iloc[0]
-df = df.drop(0)
 df.columns = df.columns.str.lower()
 
 
-# In[38]:
+# In[5]:
 
 
 df.customs = df.customs.astype(float)
 df.bir = df.bir.astype(float)
 df.total = df.total.astype(float)
+df
 
 
 # ### Chart
 
-# In[98]:
+# In[6]:
 
 
 revenues = alt.Chart(df).transform_fold(
@@ -85,45 +59,40 @@ revenues
 
 # ## % of GDP
 
-# In[83]:
+# In[8]:
 
 
-gdp_ratio = sheet.values().get(spreadsheetId=database,
-                            range="Revenue % of GDP!A1:H37").execute()
-gdp_ratio = gdp_ratio.get('values', [])
+key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
+gid = "577623777" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df2 = pd.read_csv(url)
+df2
 
 
-# In[84]:
+# In[9]:
 
 
-df2= pd.DataFrame(gdp_ratio)
-df2.head()
-
-
-# In[85]:
-
-
-df2.columns = df2.iloc[0]
-df2 = df2.drop(0)
 df2.columns = df2.columns.str.lower()
 df2.columns = df2.columns.str.replace(' ', "_", regex=False)
 df2.head()
 
 
-# In[86]:
+# In[10]:
 
 
 df2.revenue = df2.revenue.astype(float)
 df2.tax = df2.tax.astype(float)
 df2.expenditures = df2.expenditures.astype(float)
 df2.gdp_growth = df2.gdp_growth.astype(float)
+df.head()
 
 
 # ### Chart
 # 
 # ### GDP growth
 
-# In[97]:
+# In[11]:
 
 
 growth = alt.Chart(df2).mark_bar().encode(
@@ -143,7 +112,7 @@ growth
 
 # ### Deficit
 
-# In[96]:
+# In[12]:
 
 
 deficit = alt.Chart(df2).mark_bar().encode(
