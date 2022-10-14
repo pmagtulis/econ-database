@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import requests
+from altair_saver import save
 
 
 # ## Read through first CSV
