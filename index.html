@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://pmagtulis.github.io/assets/ppm.ico" />
     <script src="https://kit.fontawesome.com/092b142fb0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Philippine Economic Database -- Beta</title>
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Philippine Economy Database -- Beta</title>
     <meta charset="utf-8" />
     <meta property="og:title" content="Philippine Economic Database --Beta">
 	  <meta property="og:description" content="Select economic data with charts and context. Currently under development.">
@@ -26,70 +26,100 @@
       .footer {
         padding:8px;
         margin-top:12px;
-      }
-
-      .section {
-        padding:3px;
-        margin-top:12px;
-      }
-
-      img:hover {
-        filter: brightness(70%);
-      }
+    }
 
     </style>
   </head>
 <body>
 
     <!-- nav bar -->
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-      <div class="navbar-start">
-
-        <a class="navbar-item"><p class="title has-text-white">Philippine Economy Database</p></a>
-        </a>
+    <nav class="navbar navbar-expand-xl bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="https://pmagtulis.github.io/econ-database/">Philippine Economy Database</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="https://pmagtulis.github.io/econ-database/revenue/", target="_blank">Government revenues</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Debts</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                This site
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">GDP</a></li>
+                <li><a class="dropdown-item" href="#">Twin deficits</a></li>
+                <li><a class="dropdown-item" href="#">Tourism</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">About this site</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-      </div>
-      </nav>
-      <br>
+    </nav>
+  
+    <br>
 
 <div class="container">
-    <section class="section">
-        <div class="columns">
+    <div class="row justify-content-center" style="margin-bottom: 140px; margin-top: 100px;">
+        <div class="col-3">
         <p>This website compiles economic statistics from government agencies.
            Data are collated into one file and updated regularly. Charts are automatically generated each update.
           The goal of this site is to be a one-stop-shop for government data. Each chart directs to a separate page
           containing the data.</p>
           </div>
-
-          <hr>
-
-         <div class="columns">
-          <div class="column is-half">
-            <h5 class="title is-5">Gross domestic product</h5>
-            <p>The Philippine economy grew 7.4% in the <strong>second quarter of 2022</strong>.</p>
-            <figure class="image is-200x200">
-                <img src="https://pmagtulis.github.io/econ-database/charts/growth.png"></a>
-            </figure>
         </div>
-  
-          <div class="column is-half">
-            <h5 class="title is-5">State revenue growth</h5>
-            <p>The Bureaus of Internal Revenue and Customs collectively account for <strong>about 80% of state revenues</strong>.</p>
-              <figure class="image is-200x200">
-                  <a href= "https://pmagtulis.github.io/econ-database/revenues/"><img src="https://pmagtulis.github.io/econ-database/charts/revenue.png"></a>
-              </figure>
+
+        <br>
+
+      <!-- Card 1-->
+
+          <div class="row form-group">
+            <div class="col-4">
+              <div class="card text-bg-dark mb-3" style="max-width: 20rem;">
+                <img object fit="contain" src="https://pmagtulis.github.io/econ-database/charts/growth.png" role="img" alt="Chart shows Philippines GDP year-on-year change since 1986 in percent.">
+                <div class="card-body">
+                  <h5 class="card-title">Gross domestic product</h5>
+                  <p class="card-text">Annual growth of Philippine economy in real terms...so far.</p>
+                  <a href="https://pmagtulis.github.io/econ-database/growth/" class="btn btn-light">See more</a>
+                </div>
           </div>
         </div>
 
-            <div class="columns">
-              <div class="column is-half">
-                <h5 class="title is-5">Spending effort</h5>
-                  <p>Big spender.</p>
-                  <figure class="image is-200x200">
-                      <img src="https://pmagtulis.github.io/econ-database/charts/expenditures.png"></a>
-                  </figure>
-              </div>
+        <!-- Card 2-->
+
+            <div class="col-4">
+              <div class="card text-bg-dark mb-3" style="max-width: 20rem;">
+                <img object fit="contain" src="https://pmagtulis.github.io/econ-database/charts/revenue_growth.png" role="img" alt="Chart shows annual growth in collections of Bureaus of Internal Revenue and Customs.">
+                <div class="card-body">
+                  <h5 class="card-title">State revenues</h5>
+                  <p class="card-text">Collections by the Bureaus of Internal Revenue, Customs, tax effort, revenue effort, etc.</p>
+                  <a href="https://pmagtulis.github.io/econ-database/revenues/" class="btn btn-light">See more</a>
+                </div>
+          </div>
+        </div>
+
+
+        <!-- Card 3-->
+
+        <div class="col-4">
+          <div class="card text-bg-dark mb-3" style="max-width: 20rem;">
+            <img object fit="contain" src="https://pmagtulis.github.io/econ-database/charts/expenditures.png" role="img" alt="Chart shows national government spending as a proportion of GDP.">
+            <div class="card-body">
+              <h5 class="card-title">Spending</h5>
+              <p class="card-text">Expenditures to GDP or the "expenditure effort" of the government...so far.</p>
+              <a href="https://pmagtulis.github.io/econ-database/revenues/" class="btn btn-light">See more</a>
+            </div>
+      </div>
+    </div>
+
+    <!-- Card 4-->
 
               <div class="column is-half">
                 <h5 class="title is-5">Budget balance</h5>
@@ -99,6 +129,8 @@
                 </figure>
             </div>
           </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
   </body>  
 
