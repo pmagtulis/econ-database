@@ -35,7 +35,7 @@ revenue.total = revenue.Total.astype(float)
 revenue.head()
 
 
-# In[55]:
+# In[4]:
 
 
 long = pd.melt(revenue, id_vars=['Year'])
@@ -73,14 +73,14 @@ df2.GDP_growth = df2.GDP_growth.astype(float)
 
 # ## Separate GDP growth
 
-# In[65]:
+# In[8]:
 
 
 growth = df2[['Year', 'GDP_growth']]
 growth.head()
 
 
-# In[66]:
+# In[9]:
 
 
 df2 = df2.drop(['GDP_growth'], axis=1)
@@ -88,7 +88,7 @@ df2 = df2.drop(['GDP_growth'], axis=1)
 
 # ## Third and fourth sheets
 
-# In[70]:
+# In[10]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -99,7 +99,7 @@ df3 = pd.read_csv(url)
 df3.head()
 
 
-# In[71]:
+# In[11]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -110,7 +110,7 @@ df4 = pd.read_csv(url)
 df4.head()
 
 
-# In[74]:
+# In[12]:
 
 
 debt = df3.merge(df4, on='Period')
@@ -118,11 +118,24 @@ debt.columns = debt.columns.str.replace(' ', "_", regex=False)
 debt.head()
 
 
+# ## Fifth sheet
+
+# In[22]:
+
+
+key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
+gid = "1745782387" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df5 = pd.read_csv(url)
+df5.head()
+
+
 # ## Charts
 # 
 # ## GDP growth
 
-# In[80]:
+# In[13]:
 
 
 econ_growth = alt.Chart(growth).mark_bar().encode(
@@ -142,7 +155,7 @@ econ_growth
 
 # ## Revenue growth
 
-# In[59]:
+# In[14]:
 
 
 revenue_growth = alt.Chart(long).mark_line().encode(
@@ -159,7 +172,7 @@ revenue_growth
 
 # ## Tax and revenue
 
-# In[51]:
+# In[15]:
 
 
 tax = alt.Chart(df2).transform_fold(
@@ -176,7 +189,7 @@ tax
 
 # ## Budget balance
 
-# In[82]:
+# In[16]:
 
 
 deficit = alt.Chart(df2).mark_bar().encode(
@@ -196,7 +209,7 @@ deficit
 
 # ## Expenditures
 
-# In[83]:
+# In[17]:
 
 
 spending = alt.Chart(df2).mark_bar().encode(
@@ -216,7 +229,7 @@ spending
 
 # ## Debt
 
-# In[79]:
+# In[18]:
 
 
 debts = alt.Chart(debt).transform_fold(
@@ -232,18 +245,19 @@ debts
 
 # ## Save the CSVs
 
-# In[11]:
+# In[19]:
 
 
 revenue.to_csv('csv/revenue.csv')
 df2.to_csv('csv/pctofGDP.csv')
 growth.to_csv('csv/GDP_growth.csv')
 debt.to_csv('csv/debt.csv')
+df5.to_csv('csv/maturities.csv')
 
 
 # ## Save the charts
 
-# In[12]:
+# In[20]:
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
@@ -252,10 +266,4 @@ econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
 debts.save('charts/debt.png', scale_factor=2)
-
-
-# In[ ]:
-
-
-
 
