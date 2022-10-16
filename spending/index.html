@@ -1,130 +1,264 @@
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pmagtulis.github.io/assets/ppm.ico" />
-    <script src="https://kit.fontawesome.com/092b142fb0.js" crossorigin="anonymous"></script>
-    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://pmagtulis.github.io/assets/ppm.ico"
+    />
+    <script
+      src="https://kit.fontawesome.com/092b142fb0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <title>Government spending - Philippine Economy Database</title>
     <meta charset="utf-8" />
-    <meta property="og:title" content="Government Spending - Philippine Economy Database">
-	  <meta property="og:description" content="Expenditures to GDP so far.">
-	  <meta property="og:type" content="article">
-    <meta property="og:image" content="https://pmagtulis.github.io/assets/title-page.png">
-	  <meta name="twitter:card" content="summary_large_image">
-  	<meta name="twitter:creator" content="@prinzmagtulis">
+    <meta
+      property="og:title"
+      content="Government Spending - Philippine Economy Database"
+    />
+    <meta property="og:description" content="Expenditures to GDP so far." />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://pmagtulis.github.io/assets/title-page.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@prinzmagtulis" />
 
     <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
 
-    html, body {
-      overflow-x: hidden;
-    }
+      body {
+        position: relative;
+      }
 
-    body {
-      position: relative;
-    }
+      .share-btn-container a i {
+        font-size: 24px;
+        margin: 8px 0;
+        transition: 500ms;
+        padding: 8px;
+      }
 
-    .footer {
-        padding:8px;
-        margin-top:12px;
-    }
+      .share-btn-container .fa-facebook {
+        color: #ffff;
+      }
 
-    .active {
-   background:#D3D3D3; color:#ffff;
-}
+      .share-btn-container .fa-twitter {
+        color: #ffff;
+      }
 
+      .share-btn-container .fa-linkedin {
+        color: #ffff;
+      }
+
+      .share-btn-container .fa-whatsapp {
+        color: #ffff;
+      }
+
+      .footer {
+        padding: 8px;
+        margin-top: 12px;
+      }
+
+      .active {
+        background: #d3d3d3;
+        color: #ffff;
+      }
     </style>
   </head>
-<body>
-
+  <body>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-xl bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand text-white" href="https://pmagtulis.github.io/econ-database/">Philippine Economy Database</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a
+          class="navbar-brand text-white"
+          href="https://pmagtulis.github.io/econ-database/"
+          >Philippine Economy Database</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current='page'>Spending</a>
+              <a class="nav-link active" aria-current="page">Spending</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="https://pmagtulis.github.io/econ-database/gdp/">GDP</a>
+              <a
+                class="nav-link text-white"
+                href="https://pmagtulis.github.io/econ-database/gdp/"
+                >GDP</a
+              >
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                This site
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
               </a>
 
               <!-- drop down-->
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/revenues/">Government revenues</a></li>
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/debt/">Debts</a></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/revenues/"
+                    >Government revenues</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/debt/"
+                    >Debts</a
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Tourism</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#">About this site</a></li>
               </ul>
             </li>
           </ul>
 
           <!-- social media -->
-          <a href="https://pmagtulis.github.io/econ-database/" class="me-4 text-white">
+          <a
+            href="https://pmagtulis.github.io/econ-database/"
+            class="me-4 text-white"
+          >
             Back to home
           </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-github"></i>
-          </a>
+          <div class="share-btn-container">
+            <a href="#" class="facebook-btn">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="twitter-btn">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="linkedin-btn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="whatsapp-btn">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
-  
-    <br>
-    
+
+    <br />
+
     <div class="container">
-            <div class="row">
-                <h5 class="title is-5">State spending</h5>
-            <p><strong>Description:</strong><p>Data show total national government spending as a proportion of gross domestic product <strong>(See chart below)</strong>.
-            </p>
-            <p><strong>Sources:</strong> Bureau of the Treasury, Department of Budget and Management</p>
-              <figure class="image is-200x200">
-                  <img src="https://pmagtulis.github.io/econ-database/charts/expenditures.png" class="img-fluid" alt="Chart shows the expenditures of Philippines national government as a proportion of GDP."></a>
-              </figure>
+      <div class="row">
+        <h5 class="title is-5">State spending</h5>
+        <p><strong>Description:</strong></p>
+        <p>
+          Data show total national government spending as a proportion of gross
+          domestic product <strong>(See chart below)</strong>.
+        </p>
+        <p>
+          <strong>Sources:</strong> Bureau of the Treasury, Department of Budget
+          and Management
+        </p>
+        <figure class="image is-200x200">
+          <img
+            src="https://pmagtulis.github.io/econ-database/charts/expenditures.png"
+            class="img-fluid"
+            alt="Chart shows the expenditures of Philippines national government as a proportion of GDP."
+          />
+        </figure>
+      </div>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <!-- Percent of GDP -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              As percentage of GDP (%)
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <iframe
+                title=""
+                aria-label="Table"
+                id="datawrapper-chart-IHX3D"
+                src="https://datawrapper.dwcdn.net/IHX3D/1/"
+                scrolling="no"
+                frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none"
+                height="917"
+              ></iframe>
+              <script type="text/javascript">
+                !(function () {
+                  "use strict";
+                  window.addEventListener("message", function (e) {
+                    if (void 0 !== e.data["datawrapper-height"]) {
+                      var t = document.querySelectorAll("iframe");
+                      for (var a in e.data["datawrapper-height"])
+                        for (var r = 0; r < t.length; r++) {
+                          if (t[r].contentWindow === e.source)
+                            t[r].style.height =
+                              e.data["datawrapper-height"][a] + "px";
+                        }
+                    }
+                  });
+                })();
+              </script>
+            </div>
           </div>
-          <div class="accordion accordion-flush" id="accordionFlushExample">
+        </div>
+      </div>
+    </div>
 
-               <!-- Percent of GDP -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    As percentage of GDP (%)
-                  </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body"><iframe title="" aria-label="Table" id="datawrapper-chart-IHX3D" src="https://datawrapper.dwcdn.net/IHX3D/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="917"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
-                  </script></div>
-                </div>
-              </div>
-      </div>
-      </div>
-      </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>  
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://pmagtulis.github.io/econ-database/socials.js"></script>
+    <script src="https://pmagtulis.github.io/econ-database/mobile.js"></script>
+  </body>
 
   <footer class="footer expand-xl bg-dark text-center text-white">
     <!-- Copyright -->
     <div class="container-fluid text-center p-2">
       © 2020 Copyright:
-      <a class="text-white" href="https://pmagtulis.github.io/">Prinz Magtulis</a>
+      <a class="text-white" href="https://pmagtulis.github.io/"
+        >Prinz Magtulis</a
+      >
     </div>
     <!-- Copyright -->
   </footer>

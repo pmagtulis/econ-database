@@ -47,6 +47,29 @@
         margin-top: 12px;
       }
 
+      .share-btn-container a i {
+        font-size: 24px;
+        margin: 8px 0;
+        transition: 500ms;
+        padding: 8px;
+      }
+
+      .share-btn-container .fa-facebook {
+        color: #ffff;
+      }
+
+      .share-btn-container .fa-twitter {
+        color: #ffff;
+      }
+
+      .share-btn-container .fa-linkedin {
+        color: #ffff;
+      }
+
+      .share-btn-container .fa-whatsapp {
+        color: #ffff;
+      }
+
       .card:hover {
         filter: brightness(70%);
       }
@@ -84,7 +107,11 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="https://pmagtulis.github.io/econ-database/revenues/">Government revenues</a>
+              <a
+                class="nav-link text-white"
+                href="https://pmagtulis.github.io/econ-database/revenues/"
+                >Government revenues</a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -94,13 +121,25 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                This site
+                More
               </a>
 
               <!-- drop down-->
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/spending/">Spending</a></li>
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/debt/">Debts</a></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/spending/"
+                    >Spending</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/debt/"
+                    >Debts</a
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Tourism</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#">About this site</a></li>
@@ -109,18 +148,20 @@
           </ul>
 
           <!-- social media -->
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="me-4 text-white">
-            <i class="fab fa-github"></i>
-          </a>
+          <div class="share-btn-container">
+            <a href="#" class="facebook-btn">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="twitter-btn">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="linkedin-btn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="whatsapp-btn">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -237,7 +278,8 @@
             <div class="card-body">
               <h5 class="card-title">Debts</h5>
               <p class="card-text">
-                Amount of debt in peso terms, growth levels and proportion to GDP.
+                Amount of debt in peso terms, growth levels and proportion to
+                GDP.
               </p>
               <a
                 href="https://pmagtulis.github.io/econ-database/debt/"
@@ -255,6 +297,9 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://pmagtulis.github.io/econ-database/socials.js"></script>
+    <script src="https://pmagtulis.github.io/econ-database/mobile.js"></script>
   </body>
 
   <footer class="footer expand-xl bg-dark text-center text-white">
