@@ -1,2 +1,2 @@
 # econ-database
-Uses Google API to fetch and process contents of Google sheets and produce visuals for datasets (under development).
+This is the home of the [website](https://pmagtulis.github.io/econ-database) hosting some of the Philippines' economic data (under development).

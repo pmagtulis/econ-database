@@ -235,10 +235,17 @@ debts
 # In[11]:
 
 
+<<<<<<< HEAD
 revenue.to_csv('csv/revenue.csv')
 df2.to_csv('csv/pctofGDP.csv')
 growth.to_csv('csv/GDP_growth.csv')
 debt.to_csv('csv/debt.csv')
+=======
+# revenue.to_csv('csv/revenue.csv')
+# df2.to_csv('csv/pctofGDP.csv')
+# growth.to_csv('csv/GDP_growth.csv')
+# debt.to_csv('csv/debt.csv')
+>>>>>>> 94655243dd49ad45fda24bb1d1ea9d2e5bc77cc8
 
 
 # ## Save the charts
@@ -246,12 +253,21 @@ debt.to_csv('csv/debt.csv')
 # In[12]:
 
 
+<<<<<<< HEAD
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
 deficit.save('charts/deficit.png', scale_factor=2)
 econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
 debts.save('charts/debt.png', scale_factor=2)
+=======
+# revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
+# deficit.save('charts/deficit.png', scale_factor=2)
+# econ_growth.save('charts/growth.png', scale_factor=2)
+# spending.save('charts/expenditures.png', scale_factor=2)
+# tax.save('charts/tax_effort.png', scale_factor=2)
+# debts.save('charts/debt.png', scale_factor=2)
+>>>>>>> 94655243dd49ad45fda24bb1d1ea9d2e5bc77cc8
 
 
 # In[ ]:
