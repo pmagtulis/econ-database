@@ -1,0 +1,48 @@
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body {
+        position: relative;
+    }
+
+    .footer {
+        padding: 8px;
+        margin-top: 12px;
+    }
+
+    .share-btn-container a i {
+        font-size: 24px;
+        margin: 8px auto;
+        transition: 500ms;
+        padding: 8px;
+    }
+
+    .share-btn-container .fa-facebook {
+        color: #ffff;
+    }
+
+    .share-btn-container .fa-twitter {
+        color: #ffff;
+    }
+
+    .share-btn-container .fa-linkedin {
+        color: #ffff;
+    }
+
+    .share-btn-container .fa-whatsapp {
+        color: #ffff;
+    }
+
+    .card:hover {
+        filter: brightness(70%);
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-toggler {
+        border: 2px solid white;
+    }
