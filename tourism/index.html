@@ -138,7 +138,13 @@
                     >Debts</a
                   >
                 </li>
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/spending/">Spending</a></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/spending/"
+                    >Spending</a
+                  >
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#">About this site</a></li>
               </ul>
@@ -177,9 +183,10 @@
         <h5 class="title is-5">Tourism</h5>
         <p><strong>Description:</strong></p>
         <p>
-          Includes both foreign visitor arrivals to the Philippines <strong>(see chart below)</strong> and tourism receipts.
+          Includes both foreign visitor arrivals to the Philippines
+          <strong>(see chart below)</strong> and tourism receipts.
         </p>
-        <p><strong>Sources:</strong> Department of Tourism, Philippine Statistics Authority</p>
+        <p><strong>Source:</strong> Department of Tourism</p>
         <figure class="image is-200x200">
           <img
             src="https://pmagtulis.github.io/econ-database/charts/arrivals.png"
@@ -189,7 +196,7 @@
         </figure>
       </div>
       <div class="accordion accordion-flush" id="accordionFlushExample">
-        <!-- YoY growth -->
+        <!-- Visitor arrivals -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button
@@ -200,7 +207,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Visitor arrivals
+              Visitor arrivals (in millions)
             </button>
           </h2>
           <div
@@ -213,12 +220,12 @@
               <iframe
                 title=""
                 aria-label="Table"
-                id="datawrapper-chart-zRKJN"
-                src="https://datawrapper.dwcdn.net/zRKJN/2/"
+                id="datawrapper-chart-PLweY"
+                src="https://datawrapper.dwcdn.net/PLweY/2/"
                 scrolling="no"
                 frameborder="0"
                 style="width: 0; min-width: 100% !important; border: none"
-                height="917"
+                height="532"
               ></iframe>
               <script type="text/javascript">
                 !(function () {
@@ -236,6 +243,57 @@
                   });
                 })();
               </script>
+            </div>
+          </div>
+
+          <!-- Tourism receipts -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo"
+                aria-expanded="false"
+                aria-controls="flush-collapseTwo"
+              >
+                Tourism receipts (in billion pesos)
+              </button>
+            </h2>
+            <div
+              id="flush-collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                <iframe
+                  title=""
+                  aria-label="Table"
+                  id="datawrapper-chart-MKns5"
+                  src="https://datawrapper.dwcdn.net/MKns5/1/"
+                  scrolling="no"
+                  frameborder="0"
+                  style="width: 0; min-width: 100% !important; border: none"
+                  height="556"
+                ></iframe>
+                <script type="text/javascript">
+                  !(function () {
+                    "use strict";
+                    window.addEventListener("message", function (e) {
+                      if (void 0 !== e.data["datawrapper-height"]) {
+                        var t = document.querySelectorAll("iframe");
+                        for (var a in e.data["datawrapper-height"])
+                          for (var r = 0; r < t.length; r++) {
+                            if (t[r].contentWindow === e.source)
+                              t[r].style.height =
+                                e.data["datawrapper-height"][a] + "px";
+                          }
+                      }
+                    });
+                  })();
+                </script>
+              </div>
             </div>
           </div>
         </div>
