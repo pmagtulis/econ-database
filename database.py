@@ -44,10 +44,9 @@ long
 
 # ## Second sheet
 
-# In[5]:
+# In[26]:
 
 
-key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 gid = "577623777" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
@@ -88,10 +87,9 @@ df2 = df2.drop(['GDP_growth'], axis=1)
 
 # ## Third and fourth sheets
 
-# In[10]:
+# In[25]:
 
 
-key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 gid = "127403623" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
@@ -99,10 +97,9 @@ df3 = pd.read_csv(url)
 df3.head()
 
 
-# In[11]:
+# In[24]:
 
 
-key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 gid = "1024176394" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
@@ -120,10 +117,9 @@ debt.head()
 
 # ## Fifth sheet
 
-# In[22]:
+# In[27]:
 
 
-key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
 gid = "1745782387" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
@@ -131,11 +127,33 @@ df5 = pd.read_csv(url)
 df5.head()
 
 
+# ## Sixth sheet
+
+# In[28]:
+
+
+gid = "1291603440" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df6 = pd.read_csv(url)
+df6.head()
+
+
+# In[29]:
+
+
+gid = "1177184243" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df7 = pd.read_csv(url)
+df7.head()
+
+
 # ## Charts
 # 
 # ## GDP growth
 
-# In[13]:
+# In[15]:
 
 
 econ_growth = alt.Chart(growth).mark_bar().encode(
@@ -155,7 +173,7 @@ econ_growth
 
 # ## Revenue growth
 
-# In[14]:
+# In[16]:
 
 
 revenue_growth = alt.Chart(long).mark_line().encode(
@@ -172,7 +190,7 @@ revenue_growth
 
 # ## Tax and revenue
 
-# In[15]:
+# In[17]:
 
 
 tax = alt.Chart(df2).transform_fold(
@@ -189,7 +207,7 @@ tax
 
 # ## Budget balance
 
-# In[16]:
+# In[18]:
 
 
 deficit = alt.Chart(df2).mark_bar().encode(
@@ -209,7 +227,7 @@ deficit
 
 # ## Expenditures
 
-# In[17]:
+# In[19]:
 
 
 spending = alt.Chart(df2).mark_bar().encode(
@@ -229,7 +247,7 @@ spending
 
 # ## Debt
 
-# In[18]:
+# In[20]:
 
 
 debts = alt.Chart(debt).transform_fold(
@@ -243,6 +261,26 @@ debts = alt.Chart(debt).transform_fold(
 debts
 
 
+# ## Tourism
+
+# In[23]:
+
+
+tourism = alt.Chart(df6).mark_bar().encode(
+    x='Period:O',
+    y="Foreign arrivals (in million):Q",
+    tooltip='Foreign arrivals (in million):Q',
+    # The highlight will be set on the result of a conditional statement
+    color=alt.condition(
+        alt.datum.Period == 2021,  # If the year is 2021 this test returns True,
+        alt.value('maroon'),     # which sets the bar orange.
+        alt.value('grey')   # And if it's not true it sets the bar steelblue.
+    )
+).properties(width=700)
+
+tourism
+
+
 # ## Save the CSVs
 
 # In[19]:
@@ -253,6 +291,8 @@ df2.to_csv('csv/pctofGDP.csv')
 growth.to_csv('csv/GDP_growth.csv')
 debt.to_csv('csv/debt.csv')
 df5.to_csv('csv/maturities.csv')
+df6.to_csv('csv/arrivals.csv')
+df7.to_csv('csv/tourism_receipts.csv')
 
 
 # ## Save the charts
@@ -266,4 +306,5 @@ econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
 debts.save('charts/debt.png', scale_factor=2)
+tourism.save('charts/arrivals.png', scale_factor=2)
 

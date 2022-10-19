@@ -17,15 +17,15 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <title>National government debt - Philippine Economy Database</title>
+    <title>Gross domestic product - Philippine Economy Database</title>
     <meta charset="utf-8" />
     <meta
       property="og:title"
-      content="National government debt - Philippine Economy Database"
+      content="Gross domestic product - Philippine Economy Database"
     />
     <meta
       property="og:description"
-      content="Annual growth of Philippines' GDP in real terms, percentage to GDP and maturities."
+      content="Annual growth of Philippines' GDP in real terms."
     />
     <meta property="og:type" content="article" />
     <meta
@@ -43,11 +43,6 @@
 
       body {
         position: relative;
-      }
-
-      .footer {
-        padding: 8px;
-        margin-top: 12px;
       }
 
       .share-btn-container a i {
@@ -71,6 +66,11 @@
 
       .share-btn-container .fa-whatsapp {
         color: #ffff;
+      }
+
+      .footer {
+        padding: 8px;
+        margin-top: 12px;
       }
 
       .active {
@@ -102,7 +102,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Debts</a>
+              <a class="nav-link active" aria-current="page">Tourism</a>
             </li>
             <li class="nav-item">
               <a
@@ -134,11 +134,11 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/spending/"
-                    >Spending</a
+                    href="https://pmagtulis.github.io/econ-database/debt/"
+                    >Debts</a
                   >
                 </li>
-                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/tourism/">Tourism</a></li>
+                <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/spending/">Spending</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#">About this site</a></li>
               </ul>
@@ -174,20 +174,17 @@
 
     <div class="container">
       <div class="row">
-        <h5 class="title is-5">National government debt</h5>
+        <h5 class="title is-5">Tourism</h5>
         <p><strong>Description:</strong></p>
         <p>
-          Distinction has to be made clear: data here is all about
-          <em>national government</em> debt, which means they do not include
-          local government finances. The <strong>chart below</strong> is in
-          absolute trillion pesos.
+          Includes both foreign visitor arrivals to the Philippines <strong>(see chart below)</strong> and tourism receipts.
         </p>
-        <p><strong>Source:</strong> Bureau of the Treasury</p>
+        <p><strong>Sources:</strong> Department of Tourism, Philippine Statistics Authority</p>
         <figure class="image is-200x200">
           <img
-            src="https://pmagtulis.github.io/econ-database/charts/debt.png"
+            src="https://pmagtulis.github.io/econ-database/charts/arrivals.png"
             class="img-fluid"
-            alt="Chart shows Philippine national government debt in trillion pesos."
+            alt="Chart shows foreign visitor arrivals to the Philippines."
           />
         </figure>
       </div>
@@ -203,7 +200,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              In trillion pesos and annual percentage change
+              Visitor arrivals
             </button>
           </h2>
           <div
@@ -216,12 +213,12 @@
               <iframe
                 title=""
                 aria-label="Table"
-                id="datawrapper-chart-TtSQS"
-                src="https://datawrapper.dwcdn.net/TtSQS/1/"
+                id="datawrapper-chart-zRKJN"
+                src="https://datawrapper.dwcdn.net/zRKJN/2/"
                 scrolling="no"
                 frameborder="0"
                 style="width: 0; min-width: 100% !important; border: none"
-                height="937"
+                height="917"
               ></iframe>
               <script type="text/javascript">
                 !(function () {
@@ -239,108 +236,6 @@
                   });
                 })();
               </script>
-            </div>
-          </div>
-
-          <!-- Percent of GDP -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseTwo"
-                aria-expanded="false"
-                aria-controls="flush-collapseTwo"
-              >
-                As percentage of GDP (%)
-              </button>
-            </h2>
-            <div
-              id="flush-collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="flush-headingTwo"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div class="accordion-body">
-                <iframe
-                  title=""
-                  aria-label="Table"
-                  id="datawrapper-chart-tRG91"
-                  src="https://datawrapper.dwcdn.net/tRG91/1/"
-                  scrolling="no"
-                  frameborder="0"
-                  style="width: 0; min-width: 100% !important; border: none"
-                  height="917"
-                ></iframe>
-                <script type="text/javascript">
-                  !(function () {
-                    "use strict";
-                    window.addEventListener("message", function (e) {
-                      if (void 0 !== e.data["datawrapper-height"]) {
-                        var t = document.querySelectorAll("iframe");
-                        for (var a in e.data["datawrapper-height"])
-                          for (var r = 0; r < t.length; r++) {
-                            if (t[r].contentWindow === e.source)
-                              t[r].style.height =
-                                e.data["datawrapper-height"][a] + "px";
-                          }
-                      }
-                    });
-                  })();
-                </script>
-              </div>
-            </div>
-
-            <!-- Maturities -->
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseTwo"
-                >
-                  Average residual maturities (in years)
-                </button>
-              </h2>
-              <div
-                id="flush-collapseTwo"
-                class="accordion-collapse collapse"
-                aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample"
-              >
-                <div class="accordion-body">
-                  <iframe
-                    title=""
-                    aria-label="Table"
-                    id="datawrapper-chart-H3qbF"
-                    src="https://datawrapper.dwcdn.net/H3qbF/1/"
-                    scrolling="no"
-                    frameborder="0"
-                    style="width: 0; min-width: 100% !important; border: none"
-                    height="882"
-                  ></iframe>
-                  <script type="text/javascript">
-                    !(function () {
-                      "use strict";
-                      window.addEventListener("message", function (e) {
-                        if (void 0 !== e.data["datawrapper-height"]) {
-                          var t = document.querySelectorAll("iframe");
-                          for (var a in e.data["datawrapper-height"])
-                            for (var r = 0; r < t.length; r++) {
-                              if (t[r].contentWindow === e.source)
-                                t[r].style.height =
-                                  e.data["datawrapper-height"][a] + "px";
-                            }
-                        }
-                      });
-                    })();
-                  </script>
-                </div>
-              </div>
             </div>
           </div>
         </div>
