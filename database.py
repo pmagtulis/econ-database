@@ -297,7 +297,7 @@ debts
 
 
 tourism = alt.Chart(df6).mark_bar().encode(
-    x='Period:O',
+    x='Year:O',
     y="Foreign arrivals (in million):Q",
     tooltip='Foreign arrivals (in million):Q',
     # The highlight will be set on the result of a conditional statement
