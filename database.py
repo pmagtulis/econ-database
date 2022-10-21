@@ -333,11 +333,6 @@ employment = alt.Chart(df9).transform_fold(
 employment
 
 
-# In[33]:
-
-
-df9.Period = df9.to_datetime(Period, format='')
-
 
 # ## Save the CSVs
 
