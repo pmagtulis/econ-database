@@ -44,7 +44,7 @@ long
 
 # ## Second sheet
 
-# In[26]:
+# In[5]:
 
 
 gid = "577623777" #sheet location
@@ -54,7 +54,7 @@ df2 = pd.read_csv(url)
 df2.head()
 
 
-# In[ ]:
+# In[6]:
 
 
 df2.columns = df2.columns.str.replace(' ', "_", regex=False)
@@ -87,7 +87,7 @@ df2 = df2.drop(['GDP_growth'], axis=1)
 
 # ## Third and fourth sheets
 
-# In[25]:
+# In[10]:
 
 
 gid = "127403623" #sheet location
@@ -97,7 +97,7 @@ df3 = pd.read_csv(url)
 df3.head()
 
 
-# In[24]:
+# In[11]:
 
 
 gid = "1024176394" #sheet location
@@ -116,7 +116,7 @@ debt.head()
 
 # ## Fifth sheet
 
-# In[27]:
+# In[13]:
 
 
 gid = "1745782387" #sheet location
@@ -128,7 +128,7 @@ df5.head()
 
 # ## Sixth sheet
 
-# In[28]:
+# In[14]:
 
 
 gid = "1291603440" #sheet location
@@ -138,7 +138,7 @@ df6 = pd.read_csv(url)
 df6.head()
 
 
-# In[29]:
+# In[15]:
 
 
 gid = "1177184243" #sheet location
@@ -150,7 +150,7 @@ df7.head()
 
 # ## Seventh sheet
 
-# In[ ]:
+# In[16]:
 
 
 gid = "277084577" #sheet location
@@ -162,7 +162,7 @@ df8.head()
 
 # ## Eighth sheet
 
-# In[5]:
+# In[39]:
 
 
 gid = "295325838" #sheet location
@@ -172,18 +172,23 @@ df9 = pd.read_csv(url)
 df9.head()
 
 
-# In[6]:
+# In[44]:
 
 
-long_job = pd.melt(df9, id_vars=['Period'])
-long_job
+df9.Period = pd.to_datetime(df9.Period, format='%m-%Y')
+
+
+# In[45]:
+
+
+df9
 
 
 # ## Charts
 # 
 # ## GDP growth
 
-# In[15]:
+# In[19]:
 
 
 econ_growth = alt.Chart(growth).mark_bar().encode(
@@ -203,7 +208,7 @@ econ_growth
 
 # ## Revenue growth
 
-# In[16]:
+# In[20]:
 
 
 revenue_growth = alt.Chart(long).mark_line().encode(
@@ -220,7 +225,7 @@ revenue_growth
 
 # ## Tax and revenue
 
-# In[17]:
+# In[21]:
 
 
 tax = alt.Chart(df2).transform_fold(
@@ -237,7 +242,7 @@ tax
 
 # ## Budget balance
 
-# In[18]:
+# In[22]:
 
 
 deficit = alt.Chart(df2).mark_bar().encode(
@@ -257,7 +262,7 @@ deficit
 
 # ## Expenditures
 
-# In[19]:
+# In[23]:
 
 
 spending = alt.Chart(df2).mark_bar().encode(
@@ -277,7 +282,7 @@ spending
 
 # ## Debt
 
-# In[20]:
+# In[24]:
 
 
 debts = alt.Chart(debt).transform_fold(
@@ -293,7 +298,7 @@ debts
 
 # ## Tourism
 
-# In[23]:
+# In[29]:
 
 
 tourism = alt.Chart(df6).mark_bar().encode(
@@ -313,13 +318,13 @@ tourism
 
 # ## Employment
 
-# In[19]:
+# In[47]:
 
 
 employment = alt.Chart(df9).transform_fold(
     ['Unemployment rate']
 ).mark_line(color='darkgreen').encode(
-    x='Period:O',
+    x='Period:T',
     y='Unemployment rate:Q', 
     tooltip='value:Q'
 ).properties(width=700)
@@ -328,9 +333,15 @@ employment = alt.Chart(df9).transform_fold(
 employment
 
 
+# In[33]:
+
+
+df9.Period = df9.to_datetime(Period, format='')
+
+
 # ## Save the CSVs
 
-# In[19]:
+# In[27]:
 
 
 revenue.to_csv('csv/revenue.csv', index=False)
@@ -346,7 +357,7 @@ df9.to_csv('csv/employment.csv', index=False)
 
 # ## Save the charts
 
-# In[20]:
+# In[28]:
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
