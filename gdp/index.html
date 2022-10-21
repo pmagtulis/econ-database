@@ -1,154 +1,196 @@
 <html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://pmagtulis.github.io/assets/ppm.ico"
+    />
+    <script
+      src="https://kit.fontawesome.com/092b142fb0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link href="../custom.css" rel="stylesheet" />
+    <title>Gross domestic product - Philippine Economy Database</title>
+    <meta charset="utf-8" />
+    <meta
+      property="og:title"
+      content="Gross domestic product - Philippine Economy Database"
+    />
+    <meta
+      property="og:description"
+      content="Annual growth of Philippines' GDP in real terms."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://pmagtulis.github.io/econ-database/assets/cover.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@prinzmagtulis" />
+  </head>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="https://pmagtulis.github.io/assets/ppm.ico" />
-  <script src="https://kit.fontawesome.com/092b142fb0.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link href="../custom.css" rel="stylesheet">
-  <title>Gross domestic product - Philippine Economy Database</title>
-  <meta charset="utf-8" />
-  <meta property="og:title" content="Gross domestic product - Philippine Economy Database" />
-  <meta property="og:description" content="Annual growth of Philippines' GDP in real terms." />
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://pmagtulis.github.io/econ-database/assets/cover.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@prinzmagtulis" />
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-xl bg-dark">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand text-white"
+          href="https://pmagtulis.github.io/econ-database/"
+          >Philippine Economy Database</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">GDP</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                href="https://pmagtulis.github.io/econ-database/revenues/"
+                >Government revenues</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
 
-</head>
+              <!-- drop down-->
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/spending/"
+                    >Spending</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/debt/"
+                    >Debts</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/tourism/"
+                    >Tourism</a
+                  >
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">About this site</a></li>
+              </ul>
+            </li>
+          </ul>
 
-<body>
-  <!-- nav bar -->
-  <nav class="navbar navbar-expand-xl bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="https://pmagtulis.github.io/econ-database/">Philippine Economy
-        Database</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page">GDP</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="https://pmagtulis.github.io/econ-database/revenues/">Government
-              revenues</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              More
+          <!-- social media -->
+          <a
+            href="https://pmagtulis.github.io/econ-database/"
+            class="me-4 text-white"
+          >
+            Back to home
+          </a>
+          <div class="share-btn-container">
+            <a href="#" class="facebook-btn">
+              <i class="fab fa-facebook"></i>
             </a>
-
-            <!-- drop down-->
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/spending/">Spending</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/debt/">Debts</a>
-              </li>
-              <li><a class="dropdown-item" href="https://pmagtulis.github.io/econ-database/tourism/">Tourism</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="#">About this site</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- social media -->
-        <a href="https://pmagtulis.github.io/econ-database/" class="me-4 text-white">
-          Back to home
-        </a>
-        <div class="share-btn-container">
-          <a href="#" class="facebook-btn">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="#" class="twitter-btn">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="linkedin-btn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="#" class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <br />
-
-  <div class="container">
-    <div class="row">
-      <h5 class="title is-5">Gross domestic product</h5>
-      <p><strong>Description:</strong></p>
-      <p>
-        Contains annual growth in gross domestic product, in real terms, at
-        constant 2018 prices<strong>(See chart below)</strong>.
-      </p>
-      <p><strong>Source:</strong> Philippine Statistics Authority</p>
-      <figure class="image is-200x200">
-        <img src="https://pmagtulis.github.io/econ-database/charts/growth.png" class="img-fluid"
-          alt="Chart shows Philippines real GDP growth." />
-      </figure>
-    </div>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-      <!-- YoY growth -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Year-on-year change (in %)
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <iframe title="" aria-label="Table" id="datawrapper-chart-zRKJN"
-              src="https://datawrapper.dwcdn.net/zRKJN/2/" scrolling="no" frameborder="0"
-              style="width: 0; min-width: 100% !important; border: none" height="917"></iframe>
-            <script type="text/javascript">
-              !(function () {
-                "use strict";
-                window.addEventListener("message", function (e) {
-                  if (void 0 !== e.data["datawrapper-height"]) {
-                    var t = document.querySelectorAll("iframe");
-                    for (var a in e.data["datawrapper-height"])
-                      for (var r = 0; r < t.length; r++) {
-                        if (t[r].contentWindow === e.source)
-                          t[r].style.height =
-                            e.data["datawrapper-height"][a] + "px";
-                      }
-                  }
-                });
-              })();
-            </script>
+            <a href="#" class="twitter-btn">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="linkedin-btn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="whatsapp-btn">
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>
+    </nav>
+
+    <br />
+
+    <div class="container">
+      <div class="row">
+        <figure class="image is-200x200">
+          <img
+            src="https://pmagtulis.github.io/econ-database/charts/growth.png"
+            class="img-fluid"
+            alt="Chart shows Philippines real GDP growth."
+          />
+        </figure>
+
+        <h5 class="title is-5">Gross domestic product</h5>
+        <p><em>In percent, constant 2018 prices</em></p>
+        <p><em>Source: Philippine Statistics Authority</em></p>
+        <div id="gdp"></div>
+      </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-  <script src="https://pmagtulis.github.io/econ-database/socials.js"></script>
-  <script src="https://pmagtulis.github.io/econ-database/mobile.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery.js" , type="application/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script
+      src="../js/csv_to_table.js"
+      ,
+      type="application/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/socials.js"></script>
+    <script src="../js/mobile.js"></script>
 
-<footer class="footer expand-xl bg-dark text-center text-white">
-  <!-- Copyright -->
-  <div class="container-fluid text-center p-2">
-    © 2020 Copyright:
-    <a class="text-white" href="https://pmagtulis.github.io/">Prinz Magtulis</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/GDP_growth.csv",
+        element: "gdp",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+  </body>
 
+  <footer class="footer expand-xl bg-dark text-center text-white">
+    <!-- Copyright -->
+    <div class="container-fluid text-center p-2">
+      © 2020 Copyright:
+      <a class="text-white" href="https://pmagtulis.github.io/"
+        >Prinz Magtulis</a
+      >
+    </div>
+    <!-- Copyright -->
+  </footer>
 </html>
