@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Using Google APIs to get data from google sheets
+# # Philippine Economy Database
 
 # In[1]:
 
@@ -286,13 +286,13 @@ tourism
 # In[19]:
 
 
-revenue.to_csv('csv/revenue.csv')
-df2.to_csv('csv/pctofGDP.csv')
-growth.to_csv('csv/GDP_growth.csv')
-debt.to_csv('csv/debt.csv')
-df5.to_csv('csv/maturities.csv')
-df6.to_csv('csv/arrivals.csv')
-df7.to_csv('csv/tourism_receipts.csv')
+revenue.to_csv('csv/revenue.csv', index=False)
+df2.to_csv('csv/pctofGDP.csv', index=False)
+growth.to_csv('csv/GDP_growth.csv', index=False)
+debt.to_csv('csv/debt.csv', index=False)
+df5.to_csv('csv/maturities.csv', index=False)
+df6.to_csv('csv/arrivals.csv', index=False)
+df7.to_csv('csv/tourism_receipts.csv', index=False)
 
 
 # ## Save the charts
