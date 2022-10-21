@@ -54,7 +54,7 @@ df2 = pd.read_csv(url)
 df2.head()
 
 
-# In[6]:
+# In[ ]:
 
 
 df2.columns = df2.columns.str.replace(' ', "_", regex=False)
@@ -110,8 +110,7 @@ df4.head()
 # In[12]:
 
 
-debt = df3.merge(df4, on='Period')
-debt.columns = debt.columns.str.replace(' ', "_", regex=False)
+debt = df3.merge(df4, on='Year')
 debt.head()
 
 
@@ -147,6 +146,37 @@ gid = "1177184243" #sheet location
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df7 = pd.read_csv(url)
 df7.head()
+
+
+# ## Seventh sheet
+
+# In[ ]:
+
+
+gid = "277084577" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df8 = pd.read_csv(url)
+df8.head()
+
+
+# ## Eighth sheet
+
+# In[5]:
+
+
+gid = "295325838" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df9 = pd.read_csv(url)
+df9.head()
+
+
+# In[6]:
+
+
+long_job = pd.melt(df9, id_vars=['Period'])
+long_job
 
 
 # ## Charts
@@ -251,9 +281,9 @@ spending
 
 
 debts = alt.Chart(debt).transform_fold(
-    ['Debt_levels']
+    ['Debt']
 ).mark_area(color='darkgreen').encode(
-    x='Period:O',
+    x='Year:O',
     y='value:Q', 
     tooltip='value:Q'
 ).properties(width=700)
@@ -272,13 +302,30 @@ tourism = alt.Chart(df6).mark_bar().encode(
     tooltip='Foreign arrivals (in million):Q',
     # The highlight will be set on the result of a conditional statement
     color=alt.condition(
-        alt.datum.Period == 2021,  # If the year is 2021 this test returns True,
+        alt.datum.Year == 2021,  # If the year is 2021 this test returns True,
         alt.value('maroon'),     # which sets the bar orange.
         alt.value('grey')   # And if it's not true it sets the bar steelblue.
     )
 ).properties(width=700)
 
 tourism
+
+
+# ## Employment
+
+# In[19]:
+
+
+employment = alt.Chart(df9).transform_fold(
+    ['Unemployment rate']
+).mark_line(color='darkgreen').encode(
+    x='Period:O',
+    y='Unemployment rate:Q', 
+    tooltip='value:Q'
+).properties(width=700)
+
+
+employment
 
 
 # ## Save the CSVs
@@ -293,6 +340,8 @@ debt.to_csv('csv/debt.csv', index=False)
 df5.to_csv('csv/maturities.csv', index=False)
 df6.to_csv('csv/arrivals.csv', index=False)
 df7.to_csv('csv/tourism_receipts.csv', index=False)
+df8.to_csv('csv/spending.csv', index=False)
+df9.to_csv('csv/employment.csv', index=False)
 
 
 # ## Save the charts
@@ -307,4 +356,5 @@ spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
 debts.save('charts/debt.png', scale_factor=2)
 tourism.save('charts/arrivals.png', scale_factor=2)
+employment.save('charts/unemployment.png', scale_factor=2)
 

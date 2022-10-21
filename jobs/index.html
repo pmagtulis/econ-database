@@ -18,13 +18,13 @@
       crossorigin="anonymous"
     />
     <link href="../custom.css" rel="stylesheet" />
-    <title>Government spending - Philippine Economy Database</title>
+    <title>Employment - Philippine Economy Database</title>
     <meta charset="utf-8" />
     <meta
       property="og:title"
-      content="Government Spending - Philippine Economy Database"
+      content="Employment - Philippine Economy Database"
     />
-    <meta property="og:description" content="Expenditures to GDP so far." />
+    <meta property="og:description" content="Jobs data from the Philippines." />
     <meta property="og:type" content="article" />
     <meta
       property="og:image"
@@ -57,7 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Spending</a>
+              <a class="nav-link active" aria-current="page">Employment</a>
             </li>
             <li class="nav-item">
               <a
@@ -89,8 +89,8 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/jobs/"
-                    >Employment</a
+                    href="https://pmagtulis.github.io/econ-database/spending/"
+                    >Spending</a
                   >
                 </li>
                 <li>
@@ -146,22 +146,21 @@
       <div class="row">
         <figure class="image is-200x200">
           <img
-            src="https://pmagtulis.github.io/econ-database/charts/expenditures.png"
+            src="https://pmagtulis.github.io/econ-database/charts/unemployment.png"
             class="img-fluid"
-            alt="Chart shows the expenditures of Philippines national government as a proportion of GDP."
+            alt="Chart shows Philippines' unemployment rate."
           />
         </figure>
-        <h5 class="title is-5">National government expenditures</h5>
+        <h5 class="title is-5">Jobs</h5>
         <p>
-          <em>As percentage of GDP</em>
+          <em>As proportion of the labor force aged 15 and up</em>
         </p>
         <p>
           <em
-            >Sources: Department of Budget and Management, Bureau of the
-            Treasury</em
+            >Source: Philippine Statistics Authority</em
           >
         </p>
-        <div id="expenditures"></div>
+        <div id="jobs"></div>
       </div>
     </div>
 
@@ -184,8 +183,8 @@
 
     <script>
       CsvToHtmlTable.init({
-        csv_path: "../csv/spending.csv",
-        element: "expenditures",
+        csv_path: "../csv/employment.csv",
+        element: "jobs",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
