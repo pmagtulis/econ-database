@@ -58,7 +58,6 @@ df2.head()
 
 
 df2.columns = df2.columns.str.replace(' ', "_", regex=False)
-df2.head()
 
 
 # In[7]:
@@ -94,7 +93,6 @@ gid = "127403623" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df3 = pd.read_csv(url)
-df3.head()
 
 
 # In[11]:
@@ -104,7 +102,6 @@ gid = "1024176394" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df4 = pd.read_csv(url)
-df4.head()
 
 
 # In[12]:
@@ -123,7 +120,6 @@ gid = "1745782387" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df5 = pd.read_csv(url)
-df5.head()
 
 
 # ## Sixth sheet
@@ -135,7 +131,6 @@ gid = "1291603440" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df6 = pd.read_csv(url)
-df6.head()
 
 
 # In[15]:
@@ -145,19 +140,17 @@ gid = "1177184243" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df7 = pd.read_csv(url)
-df7.head()
 
 
 # ## Seventh sheet
 
-# In[16]:
+# In[3]:
 
 
 gid = "277084577" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df8 = pd.read_csv(url)
-df8.head()
 
 
 # ## Eighth sheet
@@ -169,19 +162,44 @@ gid = "295325838" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df9 = pd.read_csv(url)
-df9.head()
 
 
-# In[44]:
+# In[48]:
 
 
 df9.Period = pd.to_datetime(df9.Period, format='%m-%Y')
 
 
-# In[45]:
+# ## Ninth sheet
+
+# In[10]:
 
 
-df9
+gid = "1107002312" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df10 = pd.read_csv(url)
+
+df10 = df10.drop(df10.index[17:38])
+
+
+# ## Tenth sheet
+
+# In[14]:
+
+
+gid = "2022447349" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df11 = pd.read_csv(url)
+
+
+# In[20]:
+
+
+long_ofw = pd.melt(df11, id_vars=['Year'])
+long_ofw = long_ofw.drop(long_ofw.index[105:175])
+long_ofw.columns = ['Year', 'Deployment type', 'OFWs']
 
 
 # ## Charts
@@ -262,13 +280,13 @@ deficit
 
 # ## Expenditures
 
-# In[23]:
+# In[4]:
 
 
-spending = alt.Chart(df2).mark_bar().encode(
+spending = alt.Chart(df8).mark_bar().encode(
     x='Year:O',
-    y='Expenditures:Q',
-    tooltip='Expenditures:Q',
+    y='All expenditures:Q',
+    tooltip='All expenditures:Q',
     # The highlight will be set on the result of a conditional statement
     color=alt.condition(
         alt.datum.Year == 2021,  # If the year is 2021 this test returns True,
@@ -333,6 +351,19 @@ employment = alt.Chart(df9).transform_fold(
 employment
 
 
+# ## OFW deployment
+
+# In[27]:
+
+
+ofw = alt.Chart(long_ofw).mark_bar().encode(
+    x='Year:N',
+    y='OFWs',
+    color='Deployment type'
+).properties(width=700)
+
+ofw
+
 
 # ## Save the CSVs
 
@@ -348,6 +379,8 @@ df6.to_csv('csv/arrivals.csv', index=False)
 df7.to_csv('csv/tourism_receipts.csv', index=False)
 df8.to_csv('csv/spending.csv', index=False)
 df9.to_csv('csv/employment.csv', index=False)
+df10.to_csv('csv/annual_employment.csv', index=False)
+df11.to_csv('csv/ofw_deployment.csv', index=False)
 
 
 # ## Save the charts
@@ -363,4 +396,5 @@ tax.save('charts/tax_effort.png', scale_factor=2)
 debts.save('charts/debt.png', scale_factor=2)
 tourism.save('charts/arrivals.png', scale_factor=2)
 employment.save('charts/unemployment.png', scale_factor=2)
+ofw.save('charts/ofw_deployment.png', scale_factor=2)
 

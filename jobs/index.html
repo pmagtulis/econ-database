@@ -59,20 +59,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page">Employment</a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/gdp/"
-                >GDP</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/revenues/"
-                >Government revenues</a
-              >
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-white"
@@ -81,7 +67,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                More
+                Related data
               </a>
 
               <!-- drop down-->
@@ -89,28 +75,17 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/spending/"
-                    >Spending</a
+                    href="https://pmagtulis.github.io/econ-database/ofw/"
+                    >OFWs</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/debt/"
-                    >Debt</a
+                    href="https://pmagtulis.github.io/econ-database/gdp/"
+                    >GDP</a
                   >
                 </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/tourism/"
-                    >Tourism</a
-                  >
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">About the site</a></li>
               </ul>
             </li>
           </ul>
@@ -153,14 +128,26 @@
         </figure>
         <h5 class="title is-5">Jobs</h5>
         <p>
-          <em>As proportion of the labor force aged 15 and up</em>
-        </p>
-        <p>
           <em
-            >Source: Philippine Statistics Authority</em
+            >Description: All figures are as proportion of the labor force aged
+            15 and up</em
           >
         </p>
+        <p>
+          <em>In percent</em>
+        </p>
+        <p>
+          <em>Source: Philippine Statistics Authority</em>
+        </p>
         <div id="jobs"></div>
+
+        <hr />
+
+        <h5 class="title is-5">Annual averages</h5>
+        <p><em>In percent</em></p>
+        <p><em>Source: Philippine Statisics Authority</em></p>
+        <div id="annual-jobs"></div>
+        <p>Note: 2021 is preliminary</p>
       </div>
     </div>
 
@@ -185,6 +172,16 @@
       CsvToHtmlTable.init({
         csv_path: "../csv/employment.csv",
         element: "jobs",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/annual_employment.csv",
+        element: "annual-jobs",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },

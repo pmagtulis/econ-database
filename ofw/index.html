@@ -18,15 +18,15 @@
       crossorigin="anonymous"
     />
     <link href="../custom.css" rel="stylesheet" />
-    <title>Gross domestic product - Philippine Economy Database</title>
+    <title>Overseas Filipino workers - Philippine Economy Database</title>
     <meta charset="utf-8" />
     <meta
       property="og:title"
-      content="Gross domestic product - Philippine Economy Database"
+      content="Overseas Filipino workers - Philippine Economy Database"
     />
     <meta
       property="og:description"
-      content="Annual growth of Philippines' GDP in real terms."
+      content="All about overseas Filipinos data."
     />
     <meta property="og:type" content="article" />
     <meta
@@ -60,21 +60,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page">GDP</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/revenues/"
-                >Government revenues</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/spending/"
-                >Spending</a
-              >
+              <a class="nav-link active" aria-current="page">OFWs</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -84,18 +70,11 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                More
+                Related data
               </a>
 
               <!-- drop down-->
               <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/debt/"
-                    >Debt</a
-                  >
-                </li>
                 <li>
                   <a
                     class="dropdown-item"
@@ -106,8 +85,8 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/ofw/"
-                    >OFWs</a
+                    href="https://pmagtulis.github.io/econ-database/gdp/"
+                    >GDP</a
                   >
                 </li>
                 <li>
@@ -117,10 +96,6 @@
                     >Tourism</a
                   >
                 </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">About the site</a></li>
               </ul>
             </li>
           </ul>
@@ -156,16 +131,24 @@
       <div class="row">
         <figure class="image is-200x200">
           <img
-            src="https://pmagtulis.github.io/econ-database/charts/growth.png"
+            src="https://pmagtulis.github.io/econ-database/charts/ofw_deployment.png"
             class="img-fluid"
-            alt="Chart shows Philippines real GDP growth."
+            alt="Chart shows the number of deployed overseas Filipinos per year."
           />
         </figure>
-
-        <h5 class="title is-5">Gross domestic product</h5>
-        <p><em>In percent, constant 2018 prices</em></p>
-        <p><em>Source: Philippine Statistics Authority</em></p>
-        <div id="gdp"></div>
+        <h5 class="title is-5">Deployment</h5>
+        <p>
+          <em
+            >Source: Philippine Overseas Employment Administration<sup
+              >*</sup
+            ></em
+          >
+        </p>
+        <div id="ofw-jobs"></div>
+        <p>
+          Note: POEA is now under the Cabinet-level agency, Department of
+          Migrant Workers.
+        </p>
       </div>
     </div>
 
@@ -188,8 +171,8 @@
 
     <script>
       CsvToHtmlTable.init({
-        csv_path: "../csv/GDP_growth.csv",
-        element: "gdp",
+        csv_path: "../csv/ofw_deployment.csv",
+        element: "ofw-jobs",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
