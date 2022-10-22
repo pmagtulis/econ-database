@@ -50,3 +50,11 @@
     .nav-link.active {
         background-color: grey;
     }
+
+    a { 
+        text-decoration: none;
+    }
+
+    a:hover {
+        filter: brightness(60%);
+    }
