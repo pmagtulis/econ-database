@@ -86,16 +86,17 @@ df2 = df2.drop(['GDP_growth'], axis=1)
 
 # ## Third and fourth sheets
 
-# In[10]:
+# In[14]:
 
 
 gid = "127403623" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df3 = pd.read_csv(url)
+df3.head()
 
 
-# In[11]:
+# In[15]:
 
 
 gid = "1024176394" #sheet location
@@ -104,7 +105,7 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df4 = pd.read_csv(url)
 
 
-# In[12]:
+# In[16]:
 
 
 debt = df3.merge(df4, on='Year')
@@ -113,13 +114,14 @@ debt.head()
 
 # ## Fifth sheet
 
-# In[13]:
+# In[5]:
 
 
 gid = "1745782387" #sheet location
 
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df5 = pd.read_csv(url)
+df5.head()
 
 
 # ## Sixth sheet
@@ -200,6 +202,18 @@ df11 = pd.read_csv(url)
 long_ofw = pd.melt(df11, id_vars=['Year'])
 long_ofw = long_ofw.drop(long_ofw.index[105:175])
 long_ofw.columns = ['Year', 'Deployment type', 'OFWs']
+
+
+# ## Eleventh sheet
+
+# In[3]:
+
+
+gid = "1933014928" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df12 = pd.read_csv(url)
+df12.head()
 
 
 # ## Charts
@@ -300,14 +314,14 @@ spending
 
 # ## Debt
 
-# In[24]:
+# In[17]:
 
 
 debts = alt.Chart(debt).transform_fold(
-    ['Debt']
+    ['Debt (in trillion pesos)']
 ).mark_area(color='darkgreen').encode(
     x='Year:O',
-    y='value:Q', 
+    y='Debt (in trillion pesos):Q', 
     tooltip='value:Q'
 ).properties(width=700)
 
@@ -381,6 +395,7 @@ df8.to_csv('csv/spending.csv', index=False)
 df9.to_csv('csv/employment.csv', index=False)
 df10.to_csv('csv/annual_employment.csv', index=False)
 df11.to_csv('csv/ofw_deployment.csv', index=False)
+df12.to_csv('csv/debt_interest.csv', index=False)
 
 
 # ## Save the charts

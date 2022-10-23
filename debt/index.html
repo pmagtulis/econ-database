@@ -1,6 +1,9 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicons -->
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -30,6 +33,9 @@
       src="https://kit.fontawesome.com/092b142fb0.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- stylesheets -->
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -173,8 +179,16 @@
         <p><em>In average years</em></p>
         <p><em>Source: Bureau of the Treasury</em></p>
         <div id="debt-maturities"></div>
+        <hr />
+
+        <h5 class="title is-5">Weighted average interest rate</h5>
+        <p><em>In percent</em></p>
+        <p><em>Source: Bureau of the Treasury</em></p>
+        <div id="debt-interest"></div>
       </div>
     </div>
+
+    <!-- JS -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery.js" , type="application/javascript"></script>
@@ -193,6 +207,7 @@
     <script src="../js/socials.js"></script>
     <script src="../js/mobile.js"></script>
 
+    <!-- CSV tables-->
     <script>
       CsvToHtmlTable.init({
         csv_path: "../csv/debt.csv",
@@ -207,6 +222,16 @@
       CsvToHtmlTable.init({
         csv_path: "../csv/maturities.csv",
         element: "debt-maturities",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/debt_interest.csv",
+        element: "debt-interest",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
