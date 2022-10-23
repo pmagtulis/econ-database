@@ -163,9 +163,22 @@
         </figure>
 
         <h5 class="title is-5">Gross domestic product</h5>
+        <h5 class="title is-5">Annual change</h5>
         <p><em>In percent, constant 2018 prices</em></p>
         <p><em>Source: Philippine Statistics Authority</em></p>
         <div id="gdp"></div>
+        <hr />
+
+        <h5 class="title is-5">By quarter</h5>
+        <p><em>In percent, constant 2018 prices</em></p>
+        <p><em>Source: Philippine Statistics Authority</em></p>
+        <div id="q-gdp"></div>
+        <hr />
+
+        <h5 class="title is-5">Size of the Philippine economy</h5>
+        <p><em>In million pesos</em></p>
+        <p><em>Source: Philippine Statistics Authority</em></p>
+        <div id="size"></div>
       </div>
     </div>
 
@@ -187,11 +200,31 @@
     <script src="../js/socials.js"></script>
     <script src="../js/mobile.js"></script>
 
-    <!-- CSV table -->
+    <!-- CSV tables -->
     <script>
       CsvToHtmlTable.init({
         csv_path: "../csv/GDP_growth.csv",
         element: "gdp",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/quarterly_growth.csv",
+        element: "q-gdp",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/size.csv",
+        element: "size",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },

@@ -3,7 +3,7 @@
 
 # # Philippine Economy Database
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
@@ -15,7 +15,7 @@ from altair_saver import save
 
 # ## Read through first CSV
 
-# In[2]:
+# In[3]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -26,7 +26,7 @@ revenue.head()
 
 # ## First sheet
 
-# In[3]:
+# In[4]:
 
 
 revenue.customs = revenue.Customs.astype(float)
@@ -42,9 +42,9 @@ long = pd.melt(revenue, id_vars=['Year'])
 long
 
 
-# ## Second sheet
+# ## Percentage of GDP
 
-# In[5]:
+# In[7]:
 
 
 gid = "577623777" #sheet location
@@ -54,37 +54,55 @@ df2 = pd.read_csv(url)
 df2.head()
 
 
-# In[6]:
+# In[11]:
 
 
-df2.columns = df2.columns.str.replace(' ', "_", regex=False)
+df2.columns = df2.columns.str.replace(' ', '_', regex=False)
+df2 = df2.drop(['Budget_balance', 'GDP_growth'], axis=1)
+df2.head()
 
 
-# In[7]:
+# In[12]:
 
 
 df2.Revenue = df2.Revenue.astype(float)
 df2.Tax = df2.Tax.astype(float)
 df2.Expenditures = df2.Expenditures.astype(float)
-df2.GDP_growth = df2.GDP_growth.astype(float)
 
 
-# ## Separate GDP growth
+# ## GDP
 
-# In[8]:
+# In[13]:
 
 
-growth = df2[['Year', 'GDP_growth']]
+gid = "136458205" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+growth = pd.read_csv(url)
 growth.head()
 
 
-# In[9]:
+# In[14]:
 
 
-df2 = df2.drop(['GDP_growth'], axis=1)
+gid = "39713723" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+qgrowth = pd.read_csv(url)
+qgrowth.head()
 
 
-# ## Third and fourth sheets
+# In[15]:
+
+
+gid = "1939522525" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+size = pd.read_csv(url)
+size.head()
+
+
+# ## Debt
 
 # In[14]:
 
@@ -112,8 +130,6 @@ debt = df3.merge(df4, on='Year')
 debt.head()
 
 
-# ## Fifth sheet
-
 # In[5]:
 
 
@@ -124,7 +140,7 @@ df5 = pd.read_csv(url)
 df5.head()
 
 
-# ## Sixth sheet
+# ## Tourism
 
 # In[14]:
 
@@ -144,7 +160,7 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df7 = pd.read_csv(url)
 
 
-# ## Seventh sheet
+# ## Spending
 
 # In[3]:
 
@@ -155,7 +171,7 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df8 = pd.read_csv(url)
 
 
-# ## Eighth sheet
+# ## Labor
 
 # In[39]:
 
@@ -172,8 +188,6 @@ df9 = pd.read_csv(url)
 df9.Period = pd.to_datetime(df9.Period, format='%m-%Y')
 
 
-# ## Ninth sheet
-
 # In[10]:
 
 
@@ -185,7 +199,7 @@ df10 = pd.read_csv(url)
 df10 = df10.drop(df10.index[17:38])
 
 
-# ## Tenth sheet
+# ## OFWs
 
 # In[14]:
 
@@ -204,7 +218,7 @@ long_ofw = long_ofw.drop(long_ofw.index[105:175])
 long_ofw.columns = ['Year', 'Deployment type', 'OFWs']
 
 
-# ## Eleventh sheet
+# ## Debt interest
 
 # In[3]:
 
@@ -220,13 +234,13 @@ df12.head()
 # 
 # ## GDP growth
 
-# In[19]:
+# In[16]:
 
 
 econ_growth = alt.Chart(growth).mark_bar().encode(
     x='Year:O',
-    y="GDP_growth:Q",
-    tooltip='GDP_growth:Q',
+    y="Real GDP change:Q",
+    tooltip='Real GDP change:Q',
     # The highlight will be set on the result of a conditional statement
     color=alt.condition(
         alt.datum.Year == 2020,  # If the year is 2020 this test returns True,
@@ -387,6 +401,8 @@ ofw
 revenue.to_csv('csv/revenue.csv', index=False)
 df2.to_csv('csv/pctofGDP.csv', index=False)
 growth.to_csv('csv/GDP_growth.csv', index=False)
+qgrowth.to_csv('csv/quarterly_growth.csv', index=False)
+size.to_csv('csv/size.csv', index=False)
 debt.to_csv('csv/debt.csv', index=False)
 df5.to_csv('csv/maturities.csv', index=False)
 df6.to_csv('csv/arrivals.csv', index=False)
