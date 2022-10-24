@@ -3,7 +3,7 @@
 
 # # Philippine Economy Database
 
-# In[2]:
+# In[1]:
 
 
 import pandas as pd
@@ -15,7 +15,7 @@ from altair_saver import save
 
 # ## Read through first CSV
 
-# In[3]:
+# In[2]:
 
 
 key = "2PACX-1vQ_MYZAVCYN_sNTC6XVSq7AO2f7s56zDWrdHD9qSnzK9QugOxfJeE-6IuMBio363KhNnKYxEbsRiDSH"
@@ -26,7 +26,7 @@ revenue.head()
 
 # ## First sheet
 
-# In[4]:
+# In[3]:
 
 
 revenue.customs = revenue.Customs.astype(float)
@@ -44,7 +44,7 @@ long
 
 # ## Percentage of GDP
 
-# In[7]:
+# In[5]:
 
 
 gid = "577623777" #sheet location
@@ -54,7 +54,7 @@ df2 = pd.read_csv(url)
 df2.head()
 
 
-# In[11]:
+# In[6]:
 
 
 df2.columns = df2.columns.str.replace(' ', '_', regex=False)
@@ -62,7 +62,7 @@ df2 = df2.drop(['Budget_balance', 'GDP_growth'], axis=1)
 df2.head()
 
 
-# In[12]:
+# In[7]:
 
 
 df2.Revenue = df2.Revenue.astype(float)
@@ -72,7 +72,7 @@ df2.Expenditures = df2.Expenditures.astype(float)
 
 # ## GDP
 
-# In[13]:
+# In[8]:
 
 
 gid = "136458205" #sheet location
@@ -82,7 +82,7 @@ growth = pd.read_csv(url)
 growth.head()
 
 
-# In[14]:
+# In[39]:
 
 
 gid = "39713723" #sheet location
@@ -92,7 +92,16 @@ qgrowth = pd.read_csv(url)
 qgrowth.head()
 
 
-# In[15]:
+# In[40]:
+
+
+qgrowth['Quarter'] = pd.to_datetime(
+    qgrowth['Quarter'].str.replace(r'(Q\d) (\d+)', r'\2-\1'), errors='coerce')
+
+qgrowth
+
+
+# In[10]:
 
 
 gid = "1939522525" #sheet location
@@ -104,7 +113,7 @@ size.head()
 
 # ## Debt
 
-# In[14]:
+# In[11]:
 
 
 gid = "127403623" #sheet location
@@ -114,7 +123,7 @@ df3 = pd.read_csv(url)
 df3.head()
 
 
-# In[15]:
+# In[12]:
 
 
 gid = "1024176394" #sheet location
@@ -123,14 +132,14 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df4 = pd.read_csv(url)
 
 
-# In[16]:
+# In[13]:
 
 
 debt = df3.merge(df4, on='Year')
 debt.head()
 
 
-# In[5]:
+# In[14]:
 
 
 gid = "1745782387" #sheet location
@@ -142,7 +151,7 @@ df5.head()
 
 # ## Tourism
 
-# In[14]:
+# In[15]:
 
 
 gid = "1291603440" #sheet location
@@ -151,7 +160,7 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df6 = pd.read_csv(url)
 
 
-# In[15]:
+# In[16]:
 
 
 gid = "1177184243" #sheet location
@@ -162,7 +171,7 @@ df7 = pd.read_csv(url)
 
 # ## Spending
 
-# In[3]:
+# In[17]:
 
 
 gid = "277084577" #sheet location
@@ -173,7 +182,7 @@ df8 = pd.read_csv(url)
 
 # ## Labor
 
-# In[39]:
+# In[18]:
 
 
 gid = "295325838" #sheet location
@@ -182,13 +191,13 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df9 = pd.read_csv(url)
 
 
-# In[48]:
+# In[19]:
 
 
 df9.Period = pd.to_datetime(df9.Period, format='%m-%Y')
 
 
-# In[10]:
+# In[20]:
 
 
 gid = "1107002312" #sheet location
@@ -201,7 +210,7 @@ df10 = df10.drop(df10.index[17:38])
 
 # ## OFWs
 
-# In[14]:
+# In[21]:
 
 
 gid = "2022447349" #sheet location
@@ -210,7 +219,7 @@ url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df11 = pd.read_csv(url)
 
 
-# In[20]:
+# In[22]:
 
 
 long_ofw = pd.melt(df11, id_vars=['Year'])
@@ -220,7 +229,7 @@ long_ofw.columns = ['Year', 'Deployment type', 'OFWs']
 
 # ## Debt interest
 
-# In[3]:
+# In[23]:
 
 
 gid = "1933014928" #sheet location
@@ -234,7 +243,7 @@ df12.head()
 # 
 # ## GDP growth
 
-# In[16]:
+# In[24]:
 
 
 econ_growth = alt.Chart(growth).mark_bar().encode(
@@ -254,7 +263,7 @@ econ_growth
 
 # ## Revenue growth
 
-# In[20]:
+# In[25]:
 
 
 revenue_growth = alt.Chart(long).mark_line().encode(
@@ -271,7 +280,7 @@ revenue_growth
 
 # ## Tax and revenue
 
-# In[21]:
+# In[26]:
 
 
 tax = alt.Chart(df2).transform_fold(
@@ -288,27 +297,27 @@ tax
 
 # ## Budget balance
 
-# In[22]:
+# In[41]:
 
 
-deficit = alt.Chart(df2).mark_bar().encode(
-    x='Year:O',
-    y="Budget_balance:Q",
-    tooltip='Budget_balance:Q',
-    # The highlight will be set on the result of a conditional statement
-    color=alt.condition(
-        alt.datum.Year == 2021,  # If the year is 2020 this test returns True,
-        alt.value('maroon'),     # which sets the bar orange.
-        alt.value('grey')   # And if it's not true it sets the bar steelblue.
-    )
-).properties(width=700)
+# deficit = alt.Chart(df2).mark_bar().encode(
+#     x='Year:O',
+#     y="Budget_balance:Q",
+#     tooltip='Budget_balance:Q',
+#     # The highlight will be set on the result of a conditional statement
+#     color=alt.condition(
+#         alt.datum.Year == 2021,  # If the year is 2020 this test returns True,
+#         alt.value('maroon'),     # which sets the bar orange.
+#         alt.value('grey')   # And if it's not true it sets the bar steelblue.
+#     )
+# ).properties(width=700)
 
-deficit
+# deficit
 
 
 # ## Expenditures
 
-# In[4]:
+# In[28]:
 
 
 spending = alt.Chart(df8).mark_bar().encode(
@@ -328,7 +337,7 @@ spending
 
 # ## Debt
 
-# In[17]:
+# In[29]:
 
 
 debts = alt.Chart(debt).transform_fold(
@@ -344,7 +353,7 @@ debts
 
 # ## Tourism
 
-# In[29]:
+# In[30]:
 
 
 tourism = alt.Chart(df6).mark_bar().encode(
@@ -364,7 +373,7 @@ tourism
 
 # ## Employment
 
-# In[47]:
+# In[31]:
 
 
 employment = alt.Chart(df9).transform_fold(
@@ -381,7 +390,7 @@ employment
 
 # ## OFW deployment
 
-# In[27]:
+# In[32]:
 
 
 ofw = alt.Chart(long_ofw).mark_bar().encode(
@@ -395,7 +404,7 @@ ofw
 
 # ## Save the CSVs
 
-# In[27]:
+# In[33]:
 
 
 revenue.to_csv('csv/revenue.csv', index=False)
@@ -416,7 +425,7 @@ df12.to_csv('csv/debt_interest.csv', index=False)
 
 # ## Save the charts
 
-# In[28]:
+# In[34]:
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)

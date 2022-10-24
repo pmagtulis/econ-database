@@ -168,6 +168,11 @@
         <p><em>In percent, by agency</em></p>
         <p><em>Sources: Bureau of the Treasury, Department of Finance</em></p>
         <div id="revenue"></div>
+        <hr />
+
+        <h5 class="title is-5">Collections as percentage of GDP</h5>
+        <p><em>Source: Bureau of the Treasury</em></p>
+        <div id="pct-of-gdp"></div>
       </div>
     </div>
 
@@ -194,6 +199,16 @@
       CsvToHtmlTable.init({
         csv_path: "../csv/revenue.csv",
         element: "revenue",
+        allow_download: true,
+        csv_options: { separator: ",", delimiter: '"' },
+        datatables_options: { paging: true },
+      });
+    </script>
+
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: "../csv/pctofGDP.csv",
+        element: "pct-of-gdp",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
