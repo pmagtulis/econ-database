@@ -239,6 +239,18 @@ df12 = pd.read_csv(url)
 df12.head()
 
 
+# ## Inflation
+
+# In[4]:
+
+
+gid = "1597295529" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df13 = pd.read_csv(url)
+df13.head()
+
+
 # ## Charts
 # 
 # ## GDP growth
@@ -335,6 +347,23 @@ spending = alt.Chart(df8).mark_bar().encode(
 spending
 
 
+# ## Inflation
+
+# In[5]:
+
+
+inflation = alt.Chart(df13).transform_fold(
+    ['Inflation']
+).mark_line(color='red').encode(
+    x='Month:T',
+    y='Inflation:Q', 
+    tooltip='value:Q'
+).properties(width=700)
+
+
+inflation
+
+
 # ## Debt
 
 # In[29]:
@@ -421,6 +450,7 @@ df9.to_csv('csv/employment.csv', index=False)
 df10.to_csv('csv/annual_employment.csv', index=False)
 df11.to_csv('csv/ofw_deployment.csv', index=False)
 df12.to_csv('csv/debt_interest.csv', index=False)
+df13.to_csv('csv/inflation.csv', index=False)
 
 
 # ## Save the charts
@@ -429,6 +459,7 @@ df12.to_csv('csv/debt_interest.csv', index=False)
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
+deficit.save('charts/deficit.png', scale_factor=2)
 econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
@@ -436,4 +467,5 @@ debts.save('charts/debt.png', scale_factor=2)
 tourism.save('charts/arrivals.png', scale_factor=2)
 employment.save('charts/unemployment.png', scale_factor=2)
 ofw.save('charts/ofw_deployment.png', scale_factor=2)
+inflation.save('charts/inflation.png', scale_factor=2)
 
