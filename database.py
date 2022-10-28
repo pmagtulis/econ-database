@@ -241,7 +241,7 @@ df12.head()
 
 # ## Inflation
 
-# In[4]:
+# In[3]:
 
 
 gid = "1597295529" #sheet location
@@ -249,6 +249,12 @@ gid = "1597295529" #sheet location
 url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
 df13 = pd.read_csv(url)
 df13.head()
+
+
+# In[4]:
+
+
+df13.Month = pd.to_datetime(df13.Month, format='%b-%Y')
 
 
 # ## Charts
@@ -459,7 +465,7 @@ df13.to_csv('csv/inflation.csv', index=False)
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
-# deficit.save('charts/deficit.png', scale_factor=2)
+deficit.save('charts/deficit.png', scale_factor=2)
 econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
