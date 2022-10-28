@@ -71,6 +71,7 @@
         <button
           class="navbar-toggler ml-auto"
           type="button"
+          id="burger"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
@@ -183,6 +184,20 @@
             a one-stop-shop for government data. Each chart directs to a
             separate page containing the data.
           </p>
+
+          <br />
+
+          <!-- search bar-->
+
+          <div class="search-input-wrapper">
+            <div class="search-input">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search under development" />
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
         </div>
       </div>
 
@@ -389,6 +404,7 @@
 
     <script src="js/socials.js"></script>
     <script src="js/mobile.js"></script>
+    <script src="js/search.js"></script>
   </body>
 
   <footer class="footer expand-xl bg-dark text-center text-white">
