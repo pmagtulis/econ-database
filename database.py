@@ -257,6 +257,18 @@ df13.head()
 df13.Month = pd.to_datetime(df13.Month, format='%b-%Y')
 
 
+# ## FDI
+
+# In[4]:
+
+
+gid = "2137835217" #sheet location
+
+url = f"https://docs.google.com/spreadsheets/d/e/{key}/pub?output=csv&gid={gid}"
+df14 = pd.read_csv(url)
+df14.head()
+
+
 # ## Charts
 # 
 # ## GDP growth
@@ -437,6 +449,26 @@ ofw = alt.Chart(long_ofw).mark_bar().encode(
 ofw
 
 
+# ## FDI
+
+# In[6]:
+
+
+fdi = alt.Chart(df14).mark_bar().encode(
+    x='Year:O',
+    y='FDI net inflows (in billion pesos):Q',
+    tooltip='FDI net inflows (in billion pesos):Q',
+    # The highlight will be set on the result of a conditional statement
+    color=alt.condition(
+        alt.datum.Year == 2021,  # If the year is 2021 this test returns True,
+        alt.value('red'),     # which sets the bar orange.
+        alt.value('grey')   # And if it's not true it sets the bar steelblue.
+    )
+).properties(width=700)
+
+fdi
+
+
 # ## Save the CSVs
 
 # In[33]:
@@ -457,6 +489,7 @@ df10.to_csv('csv/annual_employment.csv', index=False)
 df11.to_csv('csv/ofw_deployment.csv', index=False)
 df12.to_csv('csv/debt_interest.csv', index=False)
 df13.to_csv('csv/inflation.csv', index=False)
+df14.to_csv('csv/fdi.csv', index=False)
 
 
 # ## Save the charts
@@ -473,4 +506,5 @@ tourism.save('charts/arrivals.png', scale_factor=2)
 employment.save('charts/unemployment.png', scale_factor=2)
 ofw.save('charts/ofw_deployment.png', scale_factor=2)
 inflation.save('charts/inflation.png', scale_factor=2)
+fdi.save('charts/fdi.png', scale_factor=2)
 

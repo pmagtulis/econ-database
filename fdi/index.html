@@ -3,7 +3,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Favicons -->
-
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -35,7 +34,6 @@
     ></script>
 
     <!-- stylesheets -->
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -44,17 +42,21 @@
       crossorigin="anonymous"
     />
     <link href="../custom.css" rel="stylesheet" />
-    <title>Prices - Philippine Economy Database</title>
+
+    <title>Tourism - Philippine Economy Database</title>
     <meta charset="utf-8" />
-    <meta property="og:title" content="Prices- Philippine Economy Database" />
+    <meta
+      property="og:title"
+      content="Foreign investment - Philippine Economy Database"
+    />
     <meta
       property="og:description"
-      content="Annual growth in consumer prices in the Philippines."
+      content="Foreign investment to the Philippines."
     />
     <meta property="og:type" content="article" />
     <meta
       property="og:image"
-      content="https://pmagtulis.github.io/assets/title-page.png"
+      content="https://pmagtulis.github.io/econ-database/assets/cover.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@prinzmagtulis" />
@@ -84,7 +86,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Inflation</a>
+              <a class="nav-link active" aria-current="page"
+                >Foreign investment</a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -109,15 +113,15 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/jobs/"
-                    >Employment</a
+                    href="https://pmagtulis.github.io/econ-database/inflation/"
+                    >Prices</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/fdi/"
-                    >Foreign investment</a
+                    href="https://pmagtulis.github.io/econ-database/jobs/"
+                    >Employment</a
                   >
                 </li>
               </ul>
@@ -176,21 +180,20 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/tourism/"
-                    >Tourism</a
+                    href="https://pmagtulis.github.io/econ-database/ofw/"
+                    >Overseas Filipinos</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/ofw/"
-                    >Overseas Filipinos</a
+                    href="https://pmagtulis.github.io/econ-database/tourism/"
+                    >Tourism</a
                   >
                 </li>
               </ul>
             </li>
           </ul>
-
           <!-- social media -->
           <a
             href="https://pmagtulis.github.io/econ-database/"
@@ -222,24 +225,37 @@
       <div class="row">
         <figure class="image is-200x200">
           <img
-            src="https://pmagtulis.github.io/econ-database/charts/inflation.png"
+            src="https://pmagtulis.github.io/econ-database/charts/fdi.png"
             class="img-fluid"
-            alt="Chart shows year-on-year change in inflation."
+            alt="Chart shows net FDI inflows to the Philippines as measured by the central bank."
           />
         </figure>
 
-        <h5 class="title is-5">Consumer prices</h5>
+        <h5 class="title is-5">
+          Net foreign direct investment to the Philippines
+        </h5>
         <p>
-          <em>Year-on-year change, in percent</em>
+          <em
+            >Description: Actual non-resident foreign investment inflows to the
+            Philippines, whose equity capital on the said local enterprise is at
+            least 10%. This is distinct from foreign investments tracked by the
+            Philippine Statistics Authority, which can only be pledges, inside
+            economic zones, and do not have a 10% benchmark.
+          </em>
         </p>
-        <p><em>Base year: 2018</em></p>
-        <p><em>Source: Philippine Statistics Authority</em></p>
-        <div id="inflation"></div>
+        <p><em>Source: Bangko Sentral ng Pilipinas</em></p>
+        <div id="investment"></div>
+        <br />
+        <p>
+          Note: Comparable data only from 2005 due to methodological changes in
+          computing for BOP by the central bank. Specifically, they are now
+          using BPM 6 from BPM 5. Among others, changes meant inclusion of debt
+          investments on FDI.
+        </p>
       </div>
     </div>
 
     <!-- JS -->
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery.js" , type="application/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -258,11 +274,10 @@
     <script src="../js/mobile.js"></script>
 
     <!-- CSV tables-->
-
     <script>
       CsvToHtmlTable.init({
-        csv_path: "../csv/inflation.csv",
-        element: "inflation",
+        csv_path: "../csv/fdi.csv",
+        element: "investment",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
