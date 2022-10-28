@@ -1,10 +1,10 @@
 function myFunction() {
   // Declare variables
   var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
+  input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-  ul = document.getElementsByClassName('card-body');
-  li = ul.getElementsByClassName('card-title');
+  ul = document.getElementsByClassName("card-body");
+  li = ul.getElementsByClassName("card-title");
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
