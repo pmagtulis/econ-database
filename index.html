@@ -82,28 +82,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/gdp/"
-                >GDP</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/revenues/"
-                >Government revenues</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/spending/"
-                >Spending</a
-              >
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-white"
@@ -112,7 +90,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                More
+                Macroeconomy
               </a>
 
               <!-- drop down-->
@@ -120,10 +98,77 @@
                 <li>
                   <a
                     class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/gdp/"
+                    >Gross domestic product</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/inflation/"
+                    >Prices</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/jobs/"
+                    >Employment</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Fiscal policy
+              </a>
+
+              <!-- drop down-->
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/revenues/"
+                    >State revenues</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/spending/"
+                    >Spending</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
                     href="https://pmagtulis.github.io/econ-database/debt/"
                     >Debt</a
                   >
                 </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                External
+              </a>
+
+              <!-- drop down-->
+              <ul class="dropdown-menu">
                 <li>
                   <a
                     class="dropdown-item"
@@ -134,15 +179,8 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/jobs/"
-                    >Employment</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
                     href="https://pmagtulis.github.io/econ-database/ofw/"
-                    >OFWs</a
+                    >Overseas Filipinos</a
                   >
                 </li>
               </ul>
@@ -191,7 +229,12 @@
 
           <div class="search-input-wrapper">
             <div class="search-input">
-              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search under development" />
+              <input
+                type="text"
+                id="myInput"
+                onkeyup="myFunction()"
+                placeholder="Search under development"
+              />
               <i class="fas fa-times"></i>
             </div>
           </div>
@@ -204,6 +247,8 @@
       <!-- Card 1-->
 
       <div class="row form-group">
+        <h4>Macroeconomy</h4>
+
         <div class="card col-md-4 border-0">
           <div class="card text-bg-dark mb-4">
             <img
@@ -255,6 +300,31 @@
             <img
               object
               fit="contain"
+              src="https://pmagtulis.github.io/econ-database/charts/unemployment.png"
+              role="img"
+              alt="Chart shows the unemployment rate of the Philippines."
+            />
+            <div class="card-body">
+              <a
+                href="https://pmagtulis.github.io/econ-database/jobs/"
+                class="btn btn-light"
+                ><h5 class="card-title">Employment</h5></a
+              >
+              <p class="card-text">
+                Employment, unemployment and underemployment rates.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4-->
+        <h4>Fiscal policy</h4>
+
+        <div class="card col-md-4 border-0">
+          <div class="card text-bg-dark mb-4">
+            <img
+              object
+              fit="contain"
               src="https://pmagtulis.github.io/econ-database/charts/revenue_growth.png"
               role="img"
               alt="Chart shows annual growth in collections of Bureaus of Internal Revenue and Customs."
@@ -273,7 +343,7 @@
           </div>
         </div>
 
-        <!-- Card 4-->
+        <!-- Card 5-->
 
         <div class="card col-md-4 border-0">
           <div class="card text-bg-dark mb-4">
@@ -298,7 +368,7 @@
           </div>
         </div>
 
-        <!-- Card 5-->
+        <!-- Card 6-->
 
         <div class="card col-md-4 border-0">
           <div class="card text-bg-dark mb-4">
@@ -323,7 +393,8 @@
           </div>
         </div>
 
-        <!-- Card 6-->
+        <!-- Card 7-->
+        <h4>External</h4>
 
         <div class="card col-md-4 border-0">
           <div class="card text-bg-dark mb-4">
@@ -341,30 +412,6 @@
                 ><h5 class="card-title">Tourism</h5></a
               >
               <p class="card-text">Visitor arrivals and tourism receipts.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 7-->
-
-        <div class="card col-md-4 border-0">
-          <div class="card text-bg-dark mb-4">
-            <img
-              object
-              fit="contain"
-              src="https://pmagtulis.github.io/econ-database/charts/unemployment.png"
-              role="img"
-              alt="Chart shows the unemployment rate of the Philippines."
-            />
-            <div class="card-body">
-              <a
-                href="https://pmagtulis.github.io/econ-database/jobs/"
-                class="btn btn-light"
-                ><h5 class="card-title">Employment</h5></a
-              >
-              <p class="card-text">
-                Employment, unemployment and underemployment rates.
-              </p>
             </div>
           </div>
         </div>
