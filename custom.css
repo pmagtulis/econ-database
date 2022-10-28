@@ -59,7 +59,6 @@ a:hover {
   filter: brightness(60%);
 }
 
-
 .search-input-wrapper {
   width: 100%;
   height: 5rem;
@@ -69,7 +68,7 @@ a:hover {
 }
 
 .search-input {
-  width: 30rem;
+  width: 25rem;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -95,7 +94,7 @@ a:hover {
   font-size: 1.5rem;
   position: absolute;
   top: 27rem;
-  left: 55rem;
+  left: 54.5rem;
 }
 
 .search-icon i {
