@@ -465,7 +465,6 @@ df13.to_csv('csv/inflation.csv', index=False)
 
 
 revenue_growth.save('charts/revenue_growth.png', scale_factor=2)
-deficit.save('charts/deficit.png', scale_factor=2)
 econ_growth.save('charts/growth.png', scale_factor=2)
 spending.save('charts/expenditures.png', scale_factor=2)
 tax.save('charts/tax_effort.png', scale_factor=2)
