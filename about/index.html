@@ -3,28 +3,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Favicons -->
-
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../favicons/apple-touch-icon.png"
+      href="favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../favicons/favicon-32x32.png"
+      href="favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../favicons/favicon-16x16.png"
+      href="favicons/favicon-16x16.png"
     />
-    <link rel="manifest" href="../favicons/site.webmanifest" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
     <link
       rel="mask-icon"
-      href="../favicons/safari-pinned-tab.svg"
+      href="favicons/safari-pinned-tab.svg"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
@@ -35,7 +34,6 @@
     ></script>
 
     <!-- stylesheets -->
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -44,20 +42,18 @@
       crossorigin="anonymous"
     />
     <link href="../custom.css" rel="stylesheet" />
-    <title>National government debt - Philippine Economy Database</title>
+
+    <title>About - Philippine Economy Database</title>
     <meta charset="utf-8" />
-    <meta
-      property="og:title"
-      content="National government debt - Philippine Economy Database"
-    />
+    <meta property="og:title" content="Philippine Economy Database --Beta" />
     <meta
       property="og:description"
-      content="Annual growth of Philippines' GDP in real terms, percentage to GDP and maturities."
+      content="About the Philippine Economy Database."
     />
     <meta property="og:type" content="article" />
     <meta
       property="og:image"
-      content="https://pmagtulis.github.io/assets/title-page.png"
+      content="https://pmagtulis.github.io/econ-database/assets/cover.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@prinzmagtulis" />
@@ -73,7 +69,7 @@
           >Philippine Economy Database</a
         >
         <button
-          class="navbar-toggler"
+          class="navbar-toggler ml-auto"
           type="button"
           id="burger"
           data-bs-toggle="collapse"
@@ -86,9 +82,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Debt</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-white"
@@ -153,6 +146,13 @@
                     >Spending</a
                   >
                 </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/debt/"
+                    >Debt</a
+                  >
+                </li>
               </ul>
             </li>
 
@@ -194,21 +194,11 @@
             </li>
 
             <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                href="https://pmagtulis.github.io/econ-database/about/"
-                >About</a
-              >
+              <a class="nav-link active" aria-current="page"> About </a>
             </li>
           </ul>
 
           <!-- social media -->
-          <a
-            href="https://pmagtulis.github.io/econ-database/"
-            class="me-4 text-white"
-          >
-            Back to home
-          </a>
           <div class="share-btn-container">
             <a href="#" class="facebook-btn">
               <i class="fab fa-facebook"></i>
@@ -230,89 +220,70 @@
     <br />
 
     <div class="container">
-      <div class="row">
-        <figure class="image is-200x200">
-          <img
-            src="https://pmagtulis.github.io/econ-database/charts/debt.png"
-            class="img-fluid"
-            alt="Chart shows Philippine national government debt in trillion pesos."
-          />
-        </figure>
+      <div
+        class="row justify-content-center"
+        style="margin-bottom: 100px; margin-top: 100px"
+      >
+        <div class="col-md-3">
+          <p>
+            This website compiles economic statistics from Philippine government
+            agencies. It is an open source data project that aims to provide a
+            one-stop shop for economic statistics to the public, most especially
+            journalists, researchers, students and educators.
+          </p>
 
-        <h5 class="title is-5">National government debt</h5>
-        <p>
-          <em
-            >Description: Distinction has to be made clear: data here is all
-            about national government debt, which means they do not include
-            local government finances.</em
-          >
-        </p>
-        <p><em>Source: Bureau of the Treasury</em></p>
-        <div id="debt-data"></div>
-        <hr />
+          <br />
 
-        <h5 class="title is-5">Debt maturities</h5>
-        <p><em>In average years</em></p>
-        <p><em>Source: Bureau of the Treasury</em></p>
-        <div id="debt-maturities"></div>
-        <hr />
+          <h6><u>How are data collated?</u></h6>
+          <p>
+            Data is collated by
+            <a href="https://pmagtulis.github.io" target="_blank"
+              >Prinz Magtulis</a
+            >, a journalist who has covered the Philippine economy and business
+            for over a decade. After keeping a number of spreadsheets while on
+            the beat, Prinz is using this website to publicly make available his
+            datasets. The datasets are at various levels of update.
+          </p>
+          <br />
 
-        <h5 class="title is-5">Weighted average interest rate</h5>
-        <p><em>In percent</em></p>
-        <p><em>Source: Bureau of the Treasury</em></p>
-        <div id="debt-interest"></div>
+          <h6><u>How is the accuracy of data ensured?</u></h6>
+          <p>
+            Data are either already publicly accessible through various
+            government sites, or aren't, and were only secured by Prinz through
+            requests from sources or through freedom of information website. For
+            the former, links to the main sites are provided so that users can
+            check their veracity. For the latter, how the data was secured and
+            where is clearly marked and indicated. This gives users opportunity
+            to verify the data from the agency concerned on their own.
+          </p>
+          <br />
+
+          <h6><u>What happens if some data are found to be incorrect?</u></h6>
+          <p>
+            Corrections and clarifications are welcome. A portion of the site,
+            currently under beta mode, will be dedicated for that purpose.
+          </p>
+
+          <p>
+            It is also worth noting that some data are subject to periodic
+            updates, and that those updates may not be immediately reflected on
+            this site. We are working on mechanisms to be transparent on how
+            updated our data are.
+          </p>
+        </div>
       </div>
     </div>
 
     <!-- JS -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="../js/jquery.js" , type="application/javascript"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script
-      src="../js/csv_to_table.js"
-      ,
-      type="application/javascript"
-    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/socials.js"></script>
-    <script src="../js/mobile.js"></script>
 
-    <!-- CSV tables-->
-    <script>
-      CsvToHtmlTable.init({
-        csv_path: "../csv/debt.csv",
-        element: "debt-data",
-        allow_download: true,
-        csv_options: { separator: ",", delimiter: '"' },
-        datatables_options: { paging: true },
-      });
-    </script>
-
-    <script>
-      CsvToHtmlTable.init({
-        csv_path: "../csv/maturities.csv",
-        element: "debt-maturities",
-        allow_download: true,
-        csv_options: { separator: ",", delimiter: '"' },
-        datatables_options: { paging: true },
-      });
-    </script>
-
-    <script>
-      CsvToHtmlTable.init({
-        csv_path: "../csv/debt_interest.csv",
-        element: "debt-interest",
-        allow_download: true,
-        csv_options: { separator: ",", delimiter: '"' },
-        datatables_options: { paging: true },
-      });
-    </script>
+    <script src="js/socials.js"></script>
+    <script src="js/mobile.js"></script>
+    <script src="js/search.js"></script>
   </body>
 
   <footer class="footer expand-xl bg-dark text-center text-white">
