@@ -1,19 +1,14 @@
 function myFunction() {
   // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
+  var input, filter, ul, a, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   ul = document.getElementsByClassName("card-body");
-  li = ul.getElementsByClassName("card-title");
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
+  
+  cardTitles =[]
+  for (i = 0; i < ul.length; i++) {
+    cardTitles.push(ul[i].getElementsByClassName("card-title")[0]);
   }
+  for (i = 0; i < cardTitles.length; i++) {
+    }
 }

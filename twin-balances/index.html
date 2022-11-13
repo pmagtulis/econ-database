@@ -43,15 +43,15 @@
     />
     <link href="../custom.css" rel="stylesheet" />
 
-    <title>Government Revenues - Philippine Economy Database</title>
+    <title>Twin balances - Philippine Economy Database</title>
     <meta charset="utf-8" />
     <meta
       property="og:title"
-      content="Government Revenues - Philippine Economy Database"
+      content="Gross domestic product - Philippine Economy Database"
     />
     <meta
       property="og:description"
-      content="Collections by the Bureaus of Internal Revenue, Customs, tax effort, revenue effort, etc."
+      content="Current account and budget balances of the Philiippines."
     />
     <meta property="og:type" content="article" />
     <meta
@@ -86,9 +86,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page"
-                >Government revenues</a
-              >
+              <a class="nav-link active" aria-current="page">Twin balances</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -106,13 +104,6 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/gdp/"
-                    >Gross domestic product</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
                     href="https://pmagtulis.github.io/econ-database/inflation/"
                     >Prices</a
                   >
@@ -124,11 +115,12 @@
                     >Employment</a
                   >
                 </li>
+
                 <li>
                   <a
                     class="dropdown-item"
-                    href="https://pmagtulis.github.io/econ-database/twin-balances/"
-                    >Twin balances</a
+                    href="https://pmagtulis.github.io/econ-database/gdp/"
+                    >GDP</a
                   >
                 </li>
               </ul>
@@ -147,6 +139,13 @@
 
               <!-- drop down-->
               <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://pmagtulis.github.io/econ-database/revenues/"
+                    >State revenues</a
+                  >
+                </li>
                 <li>
                   <a
                     class="dropdown-item"
@@ -241,21 +240,17 @@
       <div class="row">
         <figure class="image is-200x200">
           <img
-            src="https://pmagtulis.github.io/econ-database/charts/revenue_growth.png"
+            src="https://pmagtulis.github.io/econ-database/charts/twin_deficits.png"
             class="img-fluid"
-            alt="Charts show annual growth in revenue collections by agency."
+            alt="Chart shows current account and budget performance per year as percentage of GDP."
           />
         </figure>
 
-        <h5 class="title is-5">Annual growth in state revenues</h5>
-        <p><em>In percent, by agency</em></p>
-        <p><em>Sources: Bureau of the Treasury, Department of Finance</em></p>
-        <div id="revenue"></div>
-        <hr />
-
-        <h5 class="title is-5">Collections as percentage of GDP</h5>
-        <p><em>Source: Bureau of the Treasury</em></p>
-        <div id="pct-of-gdp"></div>
+        <h5 class="title is-5">Twin balances</h5>
+        <h5 class="title is-5">Budget and current account balances</h5>
+        <p><em>In percentage of GDP</em></p>
+        <p><em>Sources: Bureau of the Treasury, World Bank</em></p>
+        <div id="twin"></div>
       </div>
     </div>
 
@@ -280,18 +275,8 @@
     <!-- CSV tables -->
     <script>
       CsvToHtmlTable.init({
-        csv_path: "../csv/revenue.csv",
-        element: "revenue",
-        allow_download: true,
-        csv_options: { separator: ",", delimiter: '"' },
-        datatables_options: { paging: true },
-      });
-    </script>
-
-    <script>
-      CsvToHtmlTable.init({
-        csv_path: "../csv/pctofGDP.csv",
-        element: "pct-of-gdp",
+        csv_path: "../csv/twin_deficits.csv",
+        element: "twin",
         allow_download: true,
         csv_options: { separator: ",", delimiter: '"' },
         datatables_options: { paging: true },
