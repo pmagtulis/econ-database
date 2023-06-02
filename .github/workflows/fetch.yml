@@ -22,7 +22,7 @@ jobs:
     - name: Install a new Chromium
       run: sudo apt install -y chromium-browser
     - name: Install all necessary packages
-      run: pip install requests pandas altair numpy datetime altair_saver webdriver-manager selenium==4.2.0
+      run: pip install requests pandas altair -U altair_viewer numpy datetime altair_saver webdriver-manager selenium==4.2.0
     - name: Run the script
       run: python database.py
     - name: Commit and push if content changed
